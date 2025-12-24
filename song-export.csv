@@ -55,7 +55,7 @@ id,title,artist,active,comment,tabs,lyrics,chords,capo,bypassRequestLimits,minAm
 4175048,Заметался пожар голубой (на стихи Есенина),The Retuses,false,,,,,,false,0,Лирические
 5460824,Espresso Macchiato,Tommy Cash,true,,,,,,false,0,Потанцевать
 4707042,Миру не нужны хорошие,Vanilla Bun,true,,,,,,false,0,РОК
-5517427,С Новым годом!,Vanilla Bun,false,,,,,,false,0,"Новогодние,ПОП,Потанцевать"
+5517427,С Новым годом!,Vanilla Bun,true,,,,,,false,0,"Новогодние,ПОП,Потанцевать"
 5067109,Рядом с тобой,"Vanilla Bun ",true,,,,,,false,0,РОК
 4175049,Пьяные души,VERA,true,,,,,,false,0,РОК
 5474715,Je veux,Zaz,true,,,,,,false,0,"На других языках,Французские"
