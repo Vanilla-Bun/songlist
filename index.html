@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ru" data-i18n-lang="document">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vanilla Songlist</title>
+
+  <!-- PapaParse -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js" defer></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+	
+	<!-- Favicon -->
+	<link rel="icon" type="image/x-icon" href="icons/favicon.png">
+	
+	<!-- Styles -->
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page">
+    <main class="pageinner" id="app" aria-labelledby="page-title">
+      <header class="page-header">
+        <div class="page-header title-block">
+          <h1 id="page-title" class="page-title" data-i18n-text="app.title"></h1>
+        </div>
+        <div></div>
+      </header>
+
+      <section class="toolbar" role="region" data-i18n-aria-label="app.controlsRegion">
+        <div class="search">
+          <label class="searchlabel" for="searchInput" id="searchInputLabel" data-i18n-text="search.label"></label>
+          <div class="searchfield">
+            <span class="searchicon" aria-hidden="true">🔎</span>
+						<input id="searchInput" class="searchinput" type="search" autocomplete="off" aria-labelledby="searchInputLabel" data-i18n-placeholder="search.placeholderDefault"/>
+            <button type="button" id="clearSearch" class="searchclear" data-i18n-aria-label="search.clearAria">×</button>
+          </div>
+					<button type="button" id="settingsButton" class="btn btn--icon btn--ghost" aria-expanded="false" aria-controls="settingsPanel" data-i18n-aria-label="app.settings">⚙</button>
+				</div>
+				
+				<button type="button" id="filtersToggleButton" class="btn btn--sm btn--ghost filters-toggle" aria-expanded="false" aria-controls="filtersBar">
+					<span class="filters-toggle__icon left" aria-hidden="true">▼</span>
+					<span id="filtersToggleText" data-i18n-text="app.filtersToggle"></span>
+					<span class="filters-toggle__icon right" aria-hidden="true">▼</span>
+				</button>
+				
+        <div class="filters" id="filtersBar" role="toolbar" data-i18n-aria-label="app.filtersToggle"></div>
+
+				<div id="settingsPanel" class="settings-panel" role="region" aria-labelledby="settingsTitle" aria-describedby="settingsDescription" hidden>
+					<div class="settings-header">
+						<div class="settings-title" id="settingsTitle" data-i18n-text="app.settingsTitle"></div>
+						<button type="button" class="btn btn--icon btn--ghost modal-close-button settings-close-button" id="settingsCloseButton" data-i18n-aria-label="modal.closeAria">
+							<span aria-hidden="true">×</span>
+						</button>
+					</div>
+					
+					<div id="settingsDescription" class="sr-only" data-i18n-text="app.settingsDescription"></div>
+					
+					<div class="settings-row settings-inline">
+						<label class="settings-label" id="settingsLanguageLabel" data-i18n-text="app.settingsLanguage"></label>
+
+						<div id="localeToggle" class="toggle-switch" data-value="ru">
+							<span class="toggle-slider"></span>
+
+							<label class="toggle-option">
+								<input type="radio" name="locale" value="ru">
+								<span data-i18n-text="app.languageRu"></span>
+							</label>
+
+							<label class="toggle-option">
+								<input type="radio" name="locale" value="en">
+								<span data-i18n-text="app.languageEn"></span>
+							</label>							
+						</div>
+					</div>
+
+					<div class="settings-row settings-inline">
+						<label class="settings-label" id="settingsThemeLabel" data-i18n-text="app.settingsTheme"></label>
+
+						<div id="themeToggle" class="toggle-switch" data-value="dark">
+							<span class="toggle-slider"></span>
+							
+							<label class="toggle-option">
+								<input type="radio" name="theme" value="dark">
+								<span class="toggle-icon" aria-hidden="true"></span>
+								<span id="themeLabelDark" data-i18n-text="app.themeDark"></span>
+							</label>
+							
+							<label class="toggle-option">
+								<input type="radio" name="theme" value="light">
+								<span class="toggle-icon" aria-hidden="true"></span>
+								<span id="themeLabelLight" data-i18n-text="app.themeLight"></span>
+							</label>
+						</div>
+					</div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="table-container">
+          <table class="song-table table" aria-describedby="table-caption" data-i18n-aria-label="table.ariaLabel">
+						<caption id="table-caption" class="visually-hidden caption" data-i18n-text="table.caption">.caption</caption>
+            <colgroup>
+              <col style="width: 34%" />
+              <col style="width: 34%" />
+              <col style="width: 22%" />
+              <col style="width: 10%" />
+            </colgroup>            
+
+            <thead class="song-tablehead tablehead">
+              <tr>
+                <th scope="col" class="song-tablehead-cell song-tablehead-cell--sortable" aria-sort="none">
+                  <button type="button" id="sortTitle" class="tablesort-button" aria-describedby="sort-instruction" data-i18n-aria-label="table.col.title">
+                    <span data-i18n-text="table.col.title"></span>
+                    <span class="tablesort-indicator" aria-hidden="true">▼</span>
+                  </button>
+                </th>
+                <th scope="col" class="song-tablehead-cell song-tablehead-cell--sortable" aria-sort="none">
+                  <button type="button" id="sortArtist" class="tablesort-button" aria-describedby="sort-instruction" data-i18n-aria-label="table.col.artist">
+                    <span data-i18n-text="table.col.artist"></span>
+                    <span class="tablesort-indicator" aria-hidden="true">▼</span>
+                  </button>
+                </th>
+                <th scope="col" class="song-tablehead-cell tablecell--tags">
+                  <span data-i18n-text="table.col.tags"></span>
+                </th>
+                <th scope="col" class="song-tablehead-cell tablecell--actions">
+                  <span data-i18n-text="table.col.request"></span>
+                </th>
+              </tr>
+            </thead>
+
+            <tbody id="tableBody" class="song-tablebody tablebody">
+              <tr class="empty-state hidden">
+                <td colspan="4" class="text-center ...">...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div id="songCards" class="song-cards" data-i18n-aria-label="table.cardsAria"></div>
+
+        <span id="sort-instruction" class="sr-only"></span>
+
+        <footer class="table-footer pagination">
+          <div class="table-footerleft">
+            <label for="itemsPerPage" class="visually-hidden" data-i18n-text="pagination.itemsPerPageLabel"></label>
+            <select id="itemsPerPage" class="table-footerselect paginationselect" data-i18n-aria-label="pagination.itemsPerPageLabel">
+              <option value="10">10</option>
+              <option value="25">25</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+              <option value="-1" data-i18n-text="pagination.all"></option>
+            </select>            
+          </div>
+					
+					<div class="table-footerinfo paginationinfo" id="pageInfo">0–0 / 0</div>
+					
+          <div class="table-footerpager paginationcontrols" role="group" data-i18n-aria-label="pagination.controlsAria">
+            <button type="button" class="pager-btn btn btn--ghost paginationbutton" id="firstPage" data-i18n-aria-label="pagination.firstAria">⏮</button>
+            <button type="button" class="pager-btn btn btn--ghost paginationbutton" id="prevPage" data-i18n-aria-label="pagination.prevAria">◀</button>
+            <button type="button" class="pager-btn btn btn--ghost paginationbutton" id="nextPage" data-i18n-aria-label="pagination.nextAria">▶</button>
+            <button type="button" class="pager-btn btn btn--ghost paginationbutton" id="lastPage" data-i18n-aria-label="pagination.lastAria">⏭</button>
+          </div>
+        </footer>
+      </section>
+    </main>
+  </div>
+	
+	<div id="requestModal" class="modal" aria-hidden="true" data-modal-backdrop>
+		<div class="modaldialog" role="dialog"	aria-modal="true"	aria-labelledby="requestModalTitle" aria-describedby="modalDescription" tabindex="-1">
+			<header class="modalheader">
+				<h2 id="requestModalTitle" class="modaltitle"></h2>
+
+				<button	type="button"	class="btn btn--icon btn--ghost modal-close-button" data-modal-close data-i18n-aria-label="modal.closeAria">
+					<span aria-hidden="true">×</span>
+				</button>
+			</header>
+
+			<div id="modalDescription" class="sr-only" data-i18n-text="modal.dialogDescription"></div>
+
+			<div class="modalconditions">
+				<p>
+					<span class="modal-section-icon" aria-hidden="true">🎵</span>
+					<span class="modalconditions-text" data-i18n-text="modal.conditionsMain"></span><br/>
+					<span class="modalconditions-subtext" data-i18n-text="modal.conditionsSub"></span>
+					<a href="https://www.twitch.tv/vanillabun" target="_blank" rel="noopener noreferrer">Twitch<span class="modal-action__icon" aria-hidden="true">↗</span></a>
+					•
+					<a href="https://live.vkvideo.ru/vanillabun" target="_blank" rel="noopener noreferrer">VkVideo<span class="modal-action__icon" aria-hidden="true">↗</span></a>
+				</p>
+			</div>
+			
+			<div class="modalsong">
+				<div class="modalsong-label">
+					<span class="modal-section-icon" aria-hidden="true">🎵</span>
+					<span class="modalsong-label-text" data-i18n-text="modal.songLabel"></span>
+				</div>
+				
+				<button	type="button"	id="copySong"	class="modal-action" data-i18n-aria-label="modal.copyAria">
+					<span class="modalsong-name" id="modalArtistTitle" role="status" aria-live="polite"></span>
+					<span class="modal-actionicon" aria-hidden="true">📋</span>
+				</button>
+			</div>
+
+			<div class="modalbonus">
+				<p>
+					<span class="modal-section-icon" aria-hidden="true">❤️</span>
+					<span class="modalbonus-text" data-i18n-text="modal.bonusText"></span>
+				</p>
+			</div>
+
+			<div class="modallinks">
+				<a href="https://www.donationalerts.com/r/vanilla_bun_"	target="_blank"	rel="noopener noreferrer"	class="modallink">
+					https://www.donationalerts.com/r/vanilla_bun_ <span class="modal-action__icon" aria-hidden="true">↗</span>
+				</a>
+				<a href="https://new.donatepay.ru/@vanillabun" target="_blank" rel="noopener noreferrer" class="modallink">
+					https://new.donatepay.ru/@vanillabun <span class="modal-action__icon" aria-hidden="true">↗</span>
+				</a>
+			</div>
+
+			<div class="modalcard">
+				<div class="modalcard-label">
+					<span class="modal-section-icon" aria-hidden="true">❤️</span>
+					<span class="modalcard-label-text" data-i18n-text="modal.cardLabel"></span>
+				</div>
+				
+				<button	type="button"	id="cardNumber"	class="modal-action" data-i18n-aria-label="modal.cardCopyAreaAria">
+					<span id="cardNumberValue">...</span>
+					<span class="modal-actionicon" aria-hidden="true">📋</span>
+				</button>
+				
+				<div id="cardNumberError"	class="modalerror" role="alert"	hidden></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- UI: Toast -->
+  <div id="toast" class="toast" aria-hidden="true"></div>
+	
+	<!-- A11Y: Live regions -->
+	<div role="status" aria-live="polite" aria-atomic="true" class="sr-only" id="sortStatus"></div>
+  <div id="live-region-polite" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+  <div id="live-region-assertive" class="sr-only" role="alert" aria-live="assertive" aria-atomic="true"></div>
+	
+	<!-- Scripts -->
+  <script src="script.js" defer></script>
+</body>
+</html>
