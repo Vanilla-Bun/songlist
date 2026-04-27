@@ -23,8 +23,17 @@ jobs:
           curl -fL "https://api.streamersonglist.com/v1/streamers/39650/songs/export" -o temp.json
           jq empty temp.json
 
+          if diff -q \
+            <(jq -S . temp.json) \
+            <(jq -S 'del(._version)' export.json 2>/dev/null || echo '{}') \
+            >/dev/null; then
+            echo "Нет изменений"
+            exit 0
+          fi
+
           TIMESTAMP=$(date +%s)
           jq --argjson ver "$TIMESTAMP" '. + {"_version": $ver}' temp.json > export.json
+
           rm temp.json
 
       - name: Commit and Push
@@ -35,7 +44,5 @@ jobs:
           MSK_TIME=$(TZ='Europe/Moscow' date '+%d.%m.%Y %H:%M')
 
           git add export.json
-          git diff --cached --quiet && echo "Нет изменений" && exit 0
-
-          git commit -m "Обновлён $MSK_TIME (МСК) [skip ci]"
+          git commit -m "$MSK_TIME"
           git push
