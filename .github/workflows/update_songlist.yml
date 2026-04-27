@@ -11,25 +11,23 @@ permissions:
 jobs:
   update-json:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Download latest export.json
-        run: |
-          curl -L "https://api.streamersonglist.com/v1/streamers/39650/songs/export" -o export.json
+        run: curl -L "https://api.streamersonglist.com/v1/streamers/39650/songs/export" -o export.json
 
-      - name: Commit and Push if changed
+      - name: Commit and Push
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+          
+          MSK_TIME=$(TZ='Europe/Moscow' date '+%d.%m.%Y %H:%M')
+          
+          git add export.json
 
-          if git diff --exit-code export.json > /dev/null; then
-            echo "Данные совпадают"
-          else
-            echo "Обновляем данные"
-            MSK_TIME=$(TZ='Europe/Moscow' date '+%d.%m.%Y %H:%M')
-            git add export.json
-            git commit -m "Обновлён $MSK_TIME (МСК) [skip ci]"
-            git push
-          fi
+          git commit -m "Обновлён $MSK_TIME (МСК) [skip ci]" || echo "Данные совпадают"
+          git push || echo "Изменений нет"
