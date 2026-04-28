@@ -6,9 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vanilla Songlist</title>
 
-  <!-- PapaParse -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js" defer></script>
-
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,9 +15,10 @@
 	<link rel="icon" type="image/x-icon" href="icons/favicon.png">
 	
 	<!-- Styles -->
-	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+	<div id="data-error" class="error-banner" hidden></div>
   <div class="page">
     <main class="pageinner" id="app" aria-labelledby="page-title">
       <header class="page-header">
@@ -35,7 +33,7 @@
           <label class="searchlabel" for="searchInput" id="searchInputLabel" data-i18n-text="search.label"></label>
           <div class="searchfield">
             <span class="searchicon" aria-hidden="true">🔎</span>
-						<input id="searchInput" class="searchinput" type="search" autocomplete="off" aria-labelledby="searchInputLabel" data-i18n-placeholder="search.placeholderDefault"/>
+						<input id="searchInput" class="searchinput" type="search" autocomplete="off" placeholder="Поиск..." aria-labelledby="searchInputLabel" data-i18n-placeholder="search.placeholderDefault"/>
             <button type="button" id="clearSearch" class="searchclear" data-i18n-aria-label="search.clearAria">×</button>
           </div>
 					<button type="button" id="settingsButton" class="btn btn--icon btn--ghost" aria-expanded="false" aria-controls="settingsPanel" data-i18n-aria-label="app.settings">⚙</button>
@@ -49,7 +47,7 @@
 				
         <div class="filters" id="filtersBar" role="toolbar" data-i18n-aria-label="app.filtersToggle"></div>
 
-				<div id="settingsPanel" class="settings-panel" role="region" aria-labelledby="settingsTitle" aria-describedby="settingsDescription" hidden>
+				<div id="settingsPanel" class="settings-panel" role="region" aria-labelledby="settingsTitle" aria-describedby="settingsDescription" hidden inert>
 					<div class="settings-header">
 						<div class="settings-title" id="settingsTitle" data-i18n-text="app.settingsTitle"></div>
 						<button type="button" class="btn btn--icon btn--ghost modal-close-button settings-close-button" id="settingsCloseButton" data-i18n-aria-label="modal.closeAria">
@@ -60,7 +58,7 @@
 					<div id="settingsDescription" class="sr-only" data-i18n-text="app.settingsDescription"></div>
 					
 					<div class="settings-row settings-inline">
-						<label class="settings-label" id="settingsLanguageLabel" data-i18n-text="app.settingsLanguage"></label>
+						<span class="settings-label" id="settingsLanguageLabel" data-i18n-text="app.settingsLanguage"></span>
 
 						<div id="localeToggle" class="toggle-switch" data-value="ru">
 							<span class="toggle-slider"></span>
@@ -78,7 +76,7 @@
 					</div>
 
 					<div class="settings-row settings-inline">
-						<label class="settings-label" id="settingsThemeLabel" data-i18n-text="app.settingsTheme"></label>
+						<span class="settings-label" id="settingsThemeLabel" data-i18n-text="app.settingsTheme"></span>
 
 						<div id="themeToggle" class="toggle-switch" data-value="dark">
 							<span class="toggle-slider"></span>
@@ -103,24 +101,24 @@
         <div class="table-container">
           <table class="song-table table" aria-describedby="table-caption" data-i18n-aria-label="table.ariaLabel">
 						<caption id="table-caption" class="visually-hidden caption" data-i18n-text="table.caption">.caption</caption>
-            <colgroup>
-              <col style="width: 34%" />
-              <col style="width: 34%" />
-              <col style="width: 22%" />
-              <col style="width: 10%" />
-            </colgroup>            
+						<colgroup>
+							<col class="col-title"/>
+							<col class="col-artist"/>
+							<col class="col-tags"/>
+							<col class="col-actions"/>
+						</colgroup>
 
             <thead class="song-tablehead tablehead">
               <tr>
                 <th scope="col" class="song-tablehead-cell song-tablehead-cell--sortable" aria-sort="none">
                   <button type="button" id="sortTitle" class="tablesort-button" aria-describedby="sort-instruction" data-i18n-aria-label="table.col.title">
-                    <span data-i18n-text="table.col.title"></span>
+                    <span data-i18n-text="table.col.title">Название</span>
                     <span class="tablesort-indicator" aria-hidden="true">▼</span>
                   </button>
                 </th>
                 <th scope="col" class="song-tablehead-cell song-tablehead-cell--sortable" aria-sort="none">
                   <button type="button" id="sortArtist" class="tablesort-button" aria-describedby="sort-instruction" data-i18n-aria-label="table.col.artist">
-                    <span data-i18n-text="table.col.artist"></span>
+                    <span data-i18n-text="table.col.artist">Исполнитель</span>
                     <span class="tablesort-indicator" aria-hidden="true">▼</span>
                   </button>
                 </th>
@@ -243,8 +241,8 @@
 	<!-- A11Y: Live regions -->
 	<div role="status" aria-live="polite" aria-atomic="true" class="sr-only" id="sortStatus"></div>
   <div id="live-region-polite" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
-  <div id="live-region-assertive" class="sr-only" role="alert" aria-live="assertive" aria-atomic="true"></div>
-	
+  <div id="live-region-assertive" class="sr-only" role="alert" aria-live="assertive" aria-atomic="true"></div>	
+
 	<!-- Scripts -->
   <script src="script.js" defer></script>
 </body>
