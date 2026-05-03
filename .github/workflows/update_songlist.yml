@@ -48,5 +48,5 @@ jobs:
           MSK_TIME=$(TZ='Europe/Moscow' date '+%d.%m.%Y %H:%M')
 
           git add export.json
-          git commit -m "$MSK_TIME"
+          git commit -m "upd $MSK_TIME"
           git push
