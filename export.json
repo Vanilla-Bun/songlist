@@ -327,6 +327,7 @@
       "bypassRequestLimits": false,
       "minAmount": 0,
       "attributes": [
+        "DirectorSSSR",
         "Лирические"
       ]
     },
@@ -720,6 +721,7 @@
       "bypassRequestLimits": false,
       "minAmount": 0,
       "attributes": [
+        "DirectorSSSR",
         "РОК"
       ]
     },
@@ -736,6 +738,7 @@
       "bypassRequestLimits": false,
       "minAmount": 0,
       "attributes": [
+        "DirectorSSSR",
         "РОК",
         "Лирические"
       ]
@@ -753,6 +756,7 @@
       "bypassRequestLimits": false,
       "minAmount": 0,
       "attributes": [
+        "DirectorSSSR",
         "РОК"
       ]
     },
@@ -785,7 +789,10 @@
       "capo": "",
       "bypassRequestLimits": false,
       "minAmount": 0,
-      "attributes": []
+      "attributes": [
+        "Лирические",
+        "DirectorSSSR"
+      ]
     },
     {
       "id": 4221961,
@@ -1305,6 +1312,7 @@
       "bypassRequestLimits": false,
       "minAmount": 0,
       "attributes": [
+        "DirectorSSSR",
         "РОК"
       ]
     },
@@ -1321,6 +1329,7 @@
       "bypassRequestLimits": false,
       "minAmount": 0,
       "attributes": [
+        "DirectorSSSR",
         "РОК"
       ]
     },
@@ -1439,6 +1448,7 @@
       "bypassRequestLimits": false,
       "minAmount": 0,
       "attributes": [
+        "DirectorSSSR",
         "ПОП"
       ]
     },
@@ -1609,6 +1619,7 @@
       "bypassRequestLimits": false,
       "minAmount": 0,
       "attributes": [
+        "DirectorSSSR",
         "РОК"
       ]
     },
@@ -1641,6 +1652,7 @@
       "bypassRequestLimits": false,
       "minAmount": 0,
       "attributes": [
+        "DirectorSSSR",
         "РОК"
       ]
     },
@@ -1657,6 +1669,7 @@
       "bypassRequestLimits": false,
       "minAmount": 0,
       "attributes": [
+        "DirectorSSSR",
         "РОК"
       ]
     },
@@ -1802,6 +1815,7 @@
       "bypassRequestLimits": false,
       "minAmount": 0,
       "attributes": [
+        "DirectorSSSR",
         "Лирические"
       ]
     },
@@ -1984,6 +1998,7 @@
       "bypassRequestLimits": false,
       "minAmount": 0,
       "attributes": [
+        "DirectorSSSR",
         "Ретро",
         "ПОП"
       ]
@@ -2478,6 +2493,7 @@
       "bypassRequestLimits": false,
       "minAmount": 0,
       "attributes": [
+        "DirectorSSSR",
         "Лирические"
       ]
     },
@@ -3720,6 +3736,7 @@
       "bypassRequestLimits": false,
       "minAmount": 0,
       "attributes": [
+        "DirectorSSSR",
         "РОК"
       ]
     },
@@ -3753,6 +3770,7 @@
       "bypassRequestLimits": false,
       "minAmount": 0,
       "attributes": [
+        "DirectorSSSR",
         "РОК"
       ]
     },
@@ -3800,6 +3818,7 @@
       "bypassRequestLimits": false,
       "minAmount": 0,
       "attributes": [
+        "DirectorSSSR",
         "РОК"
       ]
     },
@@ -3833,6 +3852,7 @@
       "bypassRequestLimits": false,
       "minAmount": 0,
       "attributes": [
+        "DirectorSSSR",
         "РОК"
       ]
     },
@@ -3849,6 +3869,7 @@
       "bypassRequestLimits": false,
       "minAmount": 0,
       "attributes": [
+        "DirectorSSSR",
         "РОК"
       ]
     },
@@ -3865,6 +3886,7 @@
       "bypassRequestLimits": false,
       "minAmount": 0,
       "attributes": [
+        "DirectorSSSR",
         "РОК"
       ]
     },
@@ -3881,6 +3903,7 @@
       "bypassRequestLimits": false,
       "minAmount": 0,
       "attributes": [
+        "DirectorSSSR",
         "РОК"
       ]
     },
@@ -4387,6 +4410,7 @@
       "bypassRequestLimits": false,
       "minAmount": 0,
       "attributes": [
+        "DirectorSSSR",
         "ПОП",
         "Лирические"
       ]
@@ -4568,6 +4592,7 @@
       "bypassRequestLimits": false,
       "minAmount": 0,
       "attributes": [
+        "Колыбельные",
         "Лирические"
       ]
     },
@@ -4616,6 +4641,7 @@
       "bypassRequestLimits": false,
       "minAmount": 0,
       "attributes": [
+        "DirectorSSSR",
         "Лирические"
       ]
     },
@@ -4679,6 +4705,7 @@
       "bypassRequestLimits": false,
       "minAmount": 0,
       "attributes": [
+        "DirectorSSSR",
         "РОК"
       ]
     },
@@ -5527,6 +5554,7 @@
       "bypassRequestLimits": false,
       "minAmount": 0,
       "attributes": [
+        "DirectorSSSR",
         "Лирические"
       ]
     },
@@ -5857,6 +5885,7 @@
       "bypassRequestLimits": false,
       "minAmount": 0,
       "attributes": [
+        "DirectorSSSR",
         "РОК"
       ]
     },
@@ -6287,6 +6316,7 @@
       "bypassRequestLimits": false,
       "minAmount": 0,
       "attributes": [
+        "DirectorSSSR",
         "РОК"
       ]
     },
@@ -6746,6 +6776,23 @@
       ]
     },
     {
+      "id": 5765418,
+      "title": "Не родись красивой",
+      "artist": "Фабрика",
+      "active": true,
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "minAmount": 0,
+      "attributes": [
+        "ПОП",
+        "Потанцевать"
+      ]
+    },
+    {
       "id": 4212512,
       "title": "Снег",
       "artist": "Филипп Киркоров",
@@ -7055,6 +7102,6 @@
       ]
     }
   ],
-  "total": 425,
-  "_version": 1777818783
+  "total": 426,
+  "_version": 1777845942
 }
