@@ -2816,6 +2816,24 @@
       ]
     },
     {
+      "id": 5765191,
+      "title": "Нани Брегвадзе",
+      "artist": "Дорогой длинною",
+      "active": true,
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "minAmount": 0,
+      "attributes": [
+        "Ретро",
+        "Народные",
+        "Потанцевать"
+      ]
+    },
+    {
       "id": 4501689,
       "title": "Лебединая верность",
       "artist": "Евгений Мартынов",
@@ -5779,6 +5797,22 @@
       ]
     },
     {
+      "id": 5765192,
+      "title": "Спектакль окончен",
+      "artist": "Полина Гагарина",
+      "active": true,
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "minAmount": 0,
+      "attributes": [
+        "ПОП"
+      ]
+    },
+    {
       "id": 4828265,
       "title": "Доброе сердце",
       "artist": "Порнофильмы",
@@ -7021,6 +7055,6 @@
       ]
     }
   ],
-  "total": 423,
-  "_version": 1777319008
+  "total": 425,
+  "_version": 1777818783
 }
