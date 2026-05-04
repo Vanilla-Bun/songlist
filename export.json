@@ -3250,6 +3250,7 @@
       "bypassRequestLimits": false,
       "minAmount": 0,
       "attributes": [
+        "DirectorSSSR",
         "РОК"
       ]
     },
@@ -4311,6 +4312,7 @@
       "bypassRequestLimits": false,
       "minAmount": 0,
       "attributes": [
+        "DirectorSSSR",
         "Лирические"
       ]
     },
@@ -4428,6 +4430,7 @@
       "bypassRequestLimits": false,
       "minAmount": 0,
       "attributes": [
+        "DirectorSSSR",
         "ПОП",
         "Из кинофильмов",
         "Лирические"
@@ -7103,5 +7106,5 @@
     }
   ],
   "total": 426,
-  "_version": 1777845942
+  "_version": 1777908792
 }
