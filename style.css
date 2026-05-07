@@ -209,6 +209,10 @@ body {
 	align-items: center;
 }
 
+.filters-row--multi {
+	gap: 11px;
+}
+
 .settings-panel {
 	position: absolute;
 	right: 0;
@@ -1216,6 +1220,10 @@ html[data-theme="light"] .tablehead {
 		border-bottom-left-radius: 0;
 		border-bottom-right-radius: 0;
 	}
+	
+.filters-row--multi {
+	gap: 3px;
+}
 	
 	.settings-panel {
 		padding: var(--space-1) var(--space-4);

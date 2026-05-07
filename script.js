@@ -4,7 +4,7 @@ const ENABLE_MOBILE_CARDS = true;
 const ENABLE_I18N = true;
 const ENABLE_RANDOM_PLACEHOLDER = true;
 
-const TAGS_HIDDEN = new Set(["На других языках"]);
+const TAGS_HIDDEN = new Set(["DirectorSSSR"]);	// пусто: Set()  •  с данными: Set(["attr1", "attr2"])
 
 const SUPPORTED_LOCALES = ["ru", "en"];
 const DEFAULT_LOCALE = "ru";
@@ -14,127 +14,7 @@ const SUPPORTED_THEMES = ["dark", "light"];
 const DEFAULT_THEME = "dark";
 const THEME_STORAGE_KEY = "ui.theme";
 const EMPTY_STATE_ICON = "⌀";
-
-const STRINGS = {
-	ru: {
-		app: {
-			title: "Список песен Vanilla Bun",
-			settings: "Настройки",
-			settingsTitle: "Настройки",
-			settingsDescription: "Панель настроек языка и темы",
-			controlsRegion: "Панель управления: поиск, фильтры и настройки",
-			settingsLanguage: "Язык",
-			settingsTheme: "Тема",
-			filtersToggle: "Фильтры",
-			languageRu: "Русский",
-			languageEn: "English",
-			themeDark: "Тёмная",
-			themeLight: "Светлая"
-		},
-		search: {
-			label: "Поиск по названию, исполнителю или категории",
-			clearAria: "Очистить поиск",
-			placeholderDefault: "Введите исполнителя, песню или категорию",
-			placeholderPrefix: "например:"
-		},
-		table: {				
-			ariaLabel: "Список песен",
-			caption: "Список песен",
-			cardsAria: "Карточки песен",          
-			col: { title: "Название", artist: "Исполнитель", tags: "Категории", request: "Заказ" },
-			requestBtn: "Заказать",
-			requestAria: "Заказать: {artist} – {title}",
-			emptyTitle: "Ничего не найдено",
-			emptyHint: "Попробуйте изменить запрос или выбрать другие фильтры"
-		},
-		pagination: {
-			itemsPerPageLabel: "На странице",
-			controlsAria: "Навигация по страницам",
-			firstAria: "Первая страница",
-			prevAria: "Предыдущая страница",
-			nextAria: "Следующая страница",
-			lastAria: "Последняя страница",
-			all: "Все",
-			info: "{from}–{to} / {total}"
-		},
-		modal: {
-			title: "Поддержать или заказать песню",
-			conditionsMain: "Заказать песню при поддержке от 300₽",
-			conditionsSub: "или за баллы канала",
-			songLabel: "Вы выбрали песню:",
-			cardLabel: "Поддержка на карту Т-Банк:",
-			bonusText: "Сигна в подарок за поддержку от 500₽",
-			cancelBtn: "Отмена",
-			closeAria: "Закрыть окно",
-			cancelAria: "Отменить и закрыть окно",
-			copyAria: "Скопировать название песни",
-			cardCopyAreaAria: "Номер карты. Нажмите, чтобы скопировать",
-			dialogDescription: "Посмотреть способы поддержки и заказа выбранной песни",
-			cardLoadFailed: "Ошибка загрузки номера карты",
-		},
-		toast: { copiedSong: "Название песни скопировано", copiedCard: "Номер карты скопирован", clipboardFailed: "Не удалось скопировать" },
-		a11y: { modalOpened: "Открыто окно с информацией о поддержке или заказе песни", modalClosed: "Окно закрыто" }
-	},
-	en: {
-		app: {
-			title: "Vanilla Bun Songlist",
-			settings: "Settings",
-			settingsTitle: "Settings",
-			settingsDescription: "Language and theme settings",
-			controlsRegion: "Control panel: search, filters, and settings",
-			settingsLanguage: "Language",
-			settingsTheme: "Theme",
-			filtersToggle: "Filters",
-			languageRu: "Russian",
-			languageEn: "English",
-			themeDark: "Dark",
-			themeLight: "Light"
-		},
-		search: {
-			label: "Search by title, artist, or category",
-			clearAria: "Clear search",
-			placeholderDefault: "Type an artist, song title, or category",
-			placeholderPrefix: "e.g."
-		},
-		table: {
-			ariaLabel: "Song list",
-			caption: "Song list",
-			cardsAria: "Song cards",
-			col: { title: "Title", artist: "Artist", tags: "Categories", request: "Request" },
-			requestBtn: "Request",
-			requestAria: "Request: {artist} – {title}",
-			emptyTitle: "No songs found",
-			emptyHint: "Try changing your search or selecting different filters"
-		},
-		pagination: {
-			itemsPerPageLabel: "Items per page",
-			controlsAria: "Page navigation",
-			firstAria: "First page",
-			prevAria: "Previous page",
-			nextAria: "Next page",
-			lastAria: "Last page",
-			all: "All",
-			info: "{from}–{to} / {total}"
-		},
-		modal: {
-			title: "Request a Song or Support",
-			conditionsMain: "Song requests start at $4 (≈300₽)",
-			conditionsSub: "or use channel points",
-			songLabel: "Selected song:",
-			cardLabel: "Direct bank transfer (Russia only)",
-			bonusText: "Donate $6+ (≈500₽) and get a free Fan Sign!",
-			cancelBtn: "Cancel",
-			closeAria: "Close window",
-			cancelAria: "Cancel and close window",
-			copyAria: "Copy song title",
-			cardCopyAreaAria: "Card number. Click to copy",
-			dialogDescription: "View support options and request this song",
-			cardLoadFailed: "Failed to load card number",
-		},
-		toast: { copiedSong: "Song title copied", copiedCard: "Card number copied", clipboardFailed: "Failed to copy" },
-		a11y: { modalOpened: "Song request and support dialog opened", modalClosed: "Dialog closed" }
-	}
-};
+const MAX_TAGS_PER_ROW = 2;
 
 function normalizeLocale(input) {
 	if (input === null || input === undefined) return null;
@@ -464,15 +344,17 @@ function normalizeSong(song) {
 		...song,
 		id: rawId ? rawId : undefined,
 		fallbackId,
-		attributes: visibleAttributes
+		attributes: visibleAttributes,
+		_allAttributes: song.attributes
 	};
 }
 
 function indexSong(song) {
 	const titleN = normalize(song.title);
 	const artistN = normalize(song.artist);
-	const attrsN = song.attributes.map(normalize).join(", ");
-	const searchBlobRaw = [song.title, song.artist, song.attributes.join(" ")].join(" ");
+	const allAttrs = song._allAttributes ?? song.attributes;
+	const attrsN = allAttrs.map(normalize).join(", ");
+	const searchBlobRaw = [song.title, song.artist, allAttrs.join(" ")].join(" ");
 	return {
 		...song,
 		searchTitle: titleN,
@@ -608,23 +490,6 @@ function selectFilteredSongs(state) {
 	result = applySort(result, state.ui.sort, state.ui.locale);
 	return result;
 }
-
-const FILTER_DEFS = {
-	dsssr:		{ icon: "🎸", label: "DirectorSSSR", allow: false, highlight: "true", attributes: ["DirectorSSSR"] },
-	earth:		{ icon: "🌍", label: "На других языках", allow: true, attributes: ["Английские", "Французские", "Итальянские", "Молдавские", "Украинские", "Хинди"] },
-	film:			{ icon: "🎬", label: "Из кинофильмов", allow: true, attributes: ["Из кинофильмов"] },
-	mult:			{ icon: "🧸", label: "Из мультфильмов", allow: true, attributes: ["Из мультфильмов"] },
-	ny:				{ icon: "🎄", label: "Новогодние", allow: false, attributes: ["Новогодние"] },
-	piano:		{ icon: "🎹", label: "Лирические", allow: true, attributes: ["Лирические"] },
-	dance:		{ icon: "💃", label: "Потанцевать", allow: true, attributes: ["Потанцевать"] },
-	rock:			{ icon: "🤘", label: "Рок", allow: true, attributes: ["РОК"] },
-	pop:			{ icon: "📀", label: "Поп", allow: true, attributes: ["ПОП"] },
-	folk:			{ icon: "🎶", label: "Народные", allow: true, attributes: ["Народные"] },
-	chanson:	{ icon: "🍷️", label: "Шансон", allow: true, attributes: ["Шансон"] },
-	retro:		{ icon: "🎙️", label: "Ретро", allow: true, attributes: ["Ретро"] },
-	cappella:	{ icon: "🗣️", label: "А капелла", allow: false, attributes: ["А капелла", "A capella"] },
-	lullaby:	{ icon: "😴", label: "Колыбельные", allow: false, attributes: ["Колыбельные"] },
-};
 
 const FILTER_MAP = Object.fromEntries(
 	Object.entries(FILTER_DEFS)
@@ -1420,6 +1285,7 @@ function balanceFilterRows(container) {
 	rows.forEach(rowChips => {
 		const row = document.createElement("div");
 		row.className = "filters-row";
+		row.classList.add("filters-row--multi");
 		rowChips.forEach(c => row.appendChild(c));
 		frag.appendChild(row);
 	});
@@ -1433,64 +1299,51 @@ const _tagMeasureCtx = (() => {
 		ctx.font = "11px Inter, system-ui, sans-serif";
 		return ctx;
 	} catch { return null; }
-})();
-
-const _tagTextWidthCache = new Map();
+})();		
 
 const TAG_PADDING_OVERHEAD = 16;
 
 function measureTagWidth(text) {
-	if (_tagMeasureCtx) {
-		if (_tagTextWidthCache.has(text)) {
-			return _tagTextWidthCache.get(text);
-		}
-		const w = _tagMeasureCtx.measureText(text).width + TAG_PADDING_OVERHEAD;
-		_tagTextWidthCache.set(text, w);
-		return w;
-	}
+	if (_tagMeasureCtx) return _tagMeasureCtx.measureText(text).width + TAG_PADDING_OVERHEAD;
 	return text.length * 6.5 + TAG_PADDING_OVERHEAD;
 }
 
-function packTagRows(parts, colWidth) {
-	const GAP = 4;
+function packTagRows(parts) {
 	const n = parts.length;
 	if (n === 0) return [];
 	if (n === 1) return [[parts[0]]];
 
 	const widths = parts.map(measureTagWidth);
+	const byAsc = Array.from({ length: n }, (_, i) => i)
+		.sort((a, b) => widths[a] - widths[b]);
+	const p = i => parts[byAsc[i]];
 
+	if (n === 2) {			
+		return [[p(0), p(1)]];
+	}
+
+	if (n === 3) {
+		return [[p(0), p(1)], [p(2)]];
+	}
+
+	if (n === 4) {
+		return [[p(0), p(3)], [p(1), p(2)]];
+	}
+
+	const GAP = 4;
 	const rows = [];
 	let row = [], rowW = 0;
 	for (let i = 0; i < n; i++) {
-		const addW = rowW > 0 ? rowW + GAP + widths[i] : widths[i];
-		if (row.length > 0 && addW > colWidth) {
-			rows.push(row);
-			row = [parts[i]];
-			rowW = widths[i];
+		const w = widths[byAsc[i]];
+		const addW = rowW > 0 ? rowW + GAP + w : w;
+		if (row.length >= MAX_TAGS_PER_ROW || (row.length > 0 && addW > colWidth)) {
+			rows.push(row); row = [p(i)]; rowW = w;
 		} else {
-			row.push(parts[i]);
-			rowW = addW;
+			row.push(p(i)); rowW = addW;
 		}
 	}
 	if (row.length) rows.push(row);
 	return rows;
-}
-
-let _cachedTagColW = 160;
-
-function refreshTagColWidth() {
-	const tagCell = document.querySelector("table.song-table td.tablecell--tags");
-	if (tagCell) {
-		_cachedTagColW = tagCell.getBoundingClientRect().width;
-		return;
-	}
-
-	const TABLE_TAGS_COL_RATIO   = 0.22;
-	const TABLE_CELL_PADDING_INL = 28;
-	const table = document.querySelector("table.song-table");
-	if (table) {
-		_cachedTagColW = table.getBoundingClientRect().width * TABLE_TAGS_COL_RATIO - TABLE_CELL_PADDING_INL;
-	}
 }
 
 function renderTagsToContainer(attrs, container) {
@@ -1502,8 +1355,7 @@ function renderTagsToContainer(attrs, container) {
 
 	const frag = document.createDocumentFragment();
 
-	const rows = packTagRows(parts, _cachedTagColW);
-	
+	const rows = packTagRows(parts);
 
 	rows.forEach(rowParts => {
 		const rowEl = document.createElement("div");
@@ -1817,7 +1669,7 @@ const FiltersCollapse = {
 	}
 };
 
-function createEmptyStateContent(locale, extraClass) {
+function createEmptyStateContent(locale, extraClass, context) {
 	const wrap = document.createElement("div");
 	wrap.className = "table-empty" + (extraClass ? " " + extraClass : "");
 
@@ -1830,7 +1682,10 @@ function createEmptyStateContent(locale, extraClass) {
 	titleEl.textContent = t("table.emptyTitle", locale);
 
 	const hint = document.createElement("div");
-	hint.textContent = t("table.emptyHint", locale);
+	const hintKey = context?.hasSearch && !context?.hasFilters ? "table.emptyHintSearch"
+								: context?.hasFilters && !context?.hasSearch ? "table.emptyHintFilter"
+								: "table.emptyHint";
+	hint.textContent = t(hintKey, locale);
 
 	wrap.appendChild(icon);
 	wrap.appendChild(titleEl);
@@ -1918,9 +1773,8 @@ const SongTable = {
 
 	render(visibleSongs, sortState) {
 		this.cachedVisibleSongs = Array.isArray(visibleSongs) ? visibleSongs : [];
-		if (!this.tbodyElement) return;
-		
-		refreshTagColWidth();
+		if (!this.tbodyElement) return;				
+
 		const locale = appState?.ui?.locale || DEFAULT_LOCALE;
 
 		if (!this.cachedVisibleSongs.length) {
@@ -1934,7 +1788,10 @@ const SongTable = {
 			const td = document.createElement("td");
 			td.colSpan = 4;
 			td.className = "tablecell";
-			td.appendChild(createEmptyStateContent(locale));
+			td.appendChild(createEmptyStateContent(locale, null, {
+				hasSearch: !!(appState?.ui?.search?.query?.trim()),
+				hasFilters: !!(appState?.ui?.filters?.activeKeys?.length)
+			}));
 			tr.appendChild(td);
 			this.tbodyElement.appendChild(tr);
 
@@ -2119,7 +1976,10 @@ const SongCards = {
 
 		if (!this.cachedVisibleSongs.length) {
 			this.cardMap = new Map();
-			const empty = createEmptyStateContent(locale, "song-cards-empty");
+			const empty = createEmptyStateContent(locale, "song-cards-empty", {
+				hasSearch: !!(appState?.ui?.search?.query?.trim()),
+				hasFilters: !!(appState?.ui?.filters?.activeKeys?.length)
+			});
 
 			if (this.rootElement.replaceChildren) this.rootElement.replaceChildren(empty);
 			else { this.rootElement.innerHTML = ""; this.rootElement.appendChild(empty); }
@@ -2518,52 +2378,36 @@ function initApp() {
 // -------------------------
 async function checkAndLoadJSON() {
 	dispatch(actions.dataLoadStart());
-	
-	const CACHE_KEY_DATA = "songlist-data";
+
+	const CACHE_KEY_DATA    = "songlist-data";
 	const CACHE_KEY_VERSION = "songlist-version";
 
+	const cachedData    = localStorage.getItem(CACHE_KEY_DATA);
+	const cachedVersion = localStorage.getItem(CACHE_KEY_VERSION);
+	if (cachedData) {
+		try {
+			parseAndDispatchJSON(JSON.parse(cachedData), cachedVersion);
+		} catch {}
+	}
+
 	try {
-		const cachedVersion = localStorage.getItem(CACHE_KEY_VERSION);
-		const cachedData = localStorage.getItem(CACHE_KEY_DATA);
+		const response = await fetch(CONFIG.DATA_URL, { cache: "no-cache" });
+		if (!response.ok) throw new Error("Fetch failed: " + response.status);
 
-		if (cachedData) {
-			try {
-				const parsed = JSON.parse(cachedData);
-				const cachedJsonVersion = parsed && parsed._version ? String(parsed._version) : null;
-
-				if (cachedVersion && cachedJsonVersion && cachedVersion === cachedJsonVersion) {
-						parseAndDispatchJSON(parsed, cachedVersion);
-						return;
-				}
-			} catch {}
-		}
-
-		const response = await fetch(CONFIG.DATA_URL);
-		if (!response.ok) throw new Error("Fetch failed");
-
-		const jsonData = await response.json();
+		const jsonData      = await response.json();
 		const remoteVersion = jsonData && jsonData._version ? String(jsonData._version) : null;
 
-		localStorage.setItem(CACHE_KEY_DATA, JSON.stringify(jsonData));
-		if (remoteVersion) {
-				localStorage.setItem(CACHE_KEY_VERSION, remoteVersion);
+		if (remoteVersion && remoteVersion !== cachedVersion) {
+			localStorage.setItem(CACHE_KEY_DATA,    JSON.stringify(jsonData));
+			localStorage.setItem(CACHE_KEY_VERSION, remoteVersion);
+			parseAndDispatchJSON(jsonData, remoteVersion);
 		}
 
-		parseAndDispatchJSON(jsonData, remoteVersion);				
-		
 	} catch (error) {
-		const storedData = localStorage.getItem(CACHE_KEY_DATA);
-		if (storedData) {
-			try {
-				const parsed = JSON.parse(storedData);
-				const cachedVersion = localStorage.getItem(CACHE_KEY_VERSION);
-				parseAndDispatchJSON(parsed, cachedVersion);
-				dispatch(actions.showToast("Загружены сохранённые данные", 4000));
-			} catch (e) {
-				dispatch(actions.dataLoadError("Ошибка кэша: " + e.message));
-			}
-		} else {
+		if (!cachedData) {
 			dispatch(actions.dataLoadError(getUserFriendlyError(error)));
+		} else {
+			console.warn("[checkAndLoadJSON] Сеть недоступна, используем кэш:", error?.message);
 		}
 	}
 }		
