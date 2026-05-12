@@ -4091,6 +4091,7 @@
       "bypassRequestLimits": false,
       "minAmount": 0,
       "attributes": [
+        "Колыбельные",
         "Ретро",
         "Лирические",
         "Из кинофильмов"
@@ -7106,5 +7107,5 @@
     }
   ],
   "total": 426,
-  "_version": 1778430979
+  "_version": 1778601949
 }
