@@ -778,6 +778,25 @@
       ]
     },
     {
+      "id": 5906901,
+      "title": "Dragostea din tei",
+      "artist": "O-Zone",
+      "active": true,
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "minAmount": 0,
+      "attributes": [
+        "ПОП",
+        "Потанцевать",
+        "Молдавские",
+        "На других языках"
+      ]
+    },
+    {
       "id": 4706147,
       "title": "Кометы",
       "artist": "Polnalyubvi",
@@ -2832,28 +2851,10 @@
       ]
     },
     {
-      "id": 5765191,
-      "title": "Нани Брегвадзе",
-      "artist": "Дорогой длинною",
-      "active": true,
-      "comment": "",
-      "tabs": "",
-      "lyrics": "",
-      "chords": "",
-      "capo": "",
-      "bypassRequestLimits": false,
-      "minAmount": 0,
-      "attributes": [
-        "Ретро",
-        "Народные",
-        "Потанцевать"
-      ]
-    },
-    {
       "id": 4501689,
       "title": "Лебединая верность",
       "artist": "Евгений Мартынов",
-      "active": false,
+      "active": true,
       "comment": "",
       "tabs": "",
       "lyrics": "",
@@ -5389,6 +5390,24 @@
       ]
     },
     {
+      "id": 5765191,
+      "title": "Дорогой длинною",
+      "artist": "Нани Брегвадзе",
+      "active": true,
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "minAmount": 0,
+      "attributes": [
+        "Ретро",
+        "Народные",
+        "Потанцевать"
+      ]
+    },
+    {
       "id": 4175006,
       "title": "Нас бьют – мы летаем",
       "artist": "Наргиз",
@@ -5600,6 +5619,23 @@
       "minAmount": 0,
       "attributes": [
         "РОК"
+      ]
+    },
+    {
+      "id": 5906900,
+      "title": "Секунду назад",
+      "artist": "Ночные Снайперы",
+      "active": true,
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "minAmount": 0,
+      "attributes": [
+        "РОК",
+        "Лирические"
       ]
     },
     {
@@ -7120,6 +7156,6 @@
       ]
     }
   ],
-  "total": 426,
-  "_version": 1779980800
+  "total": 428,
+  "_version": 1782392603
 }
