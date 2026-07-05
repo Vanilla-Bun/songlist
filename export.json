@@ -225,6 +225,26 @@
       ]
     },
     {
+      "id": 5934166,
+      "title": "My Heart Will Go On",
+      "artist": "Céline Dion",
+      "active": true,
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "minAmount": 0,
+      "attributes": [
+        "ПОП",
+        "Лирические",
+        "Из кинофильмов",
+        "На других языках",
+        "Английские"
+      ]
+    },
+    {
       "id": 4742546,
       "title": "Steel rain",
       "artist": "Chris Cornell",
@@ -489,6 +509,25 @@
       ]
     },
     {
+      "id": 5934167,
+      "title": "Always Remember Us This Way",
+      "artist": "Lady Gaga",
+      "active": true,
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "minAmount": 0,
+      "attributes": [
+        "Лирические",
+        "Из кинофильмов",
+        "На других языках",
+        "Английские"
+      ]
+    },
+    {
       "id": 4176315,
       "title": "Je t'aime",
       "artist": "Lara Fabian",
@@ -505,6 +544,25 @@
         "Лирические",
         "Французские",
         "На других языках"
+      ]
+    },
+    {
+      "id": 5934165,
+      "title": "Hallelujah",
+      "artist": "Leonard Cohen / Alexandra Burke",
+      "active": true,
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "minAmount": 0,
+      "attributes": [
+        "Ретро",
+        "Из мультфильмов",
+        "На других языках",
+        "Английские"
       ]
     },
     {
@@ -794,6 +852,25 @@
         "Потанцевать",
         "Молдавские",
         "На других языках"
+      ]
+    },
+    {
+      "id": 5934172,
+      "title": "Mon mec à moi",
+      "artist": "Patricia Kaas",
+      "active": true,
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "minAmount": 0,
+      "attributes": [
+        "Ретро",
+        "Шансон",
+        "На других языках",
+        "Французские"
       ]
     },
     {
@@ -2683,6 +2760,23 @@
       "minAmount": 0,
       "attributes": [
         "РОК"
+      ]
+    },
+    {
+      "id": 5934170,
+      "title": "Люби",
+      "artist": "Дан Балан",
+      "active": true,
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "minAmount": 0,
+      "attributes": [
+        "ПОП",
+        "Лирические"
       ]
     },
     {
@@ -7156,6 +7250,6 @@
       ]
     }
   ],
-  "total": 428,
-  "_version": 1782392603
+  "total": 433,
+  "_version": 1783251752
 }
