@@ -3451,6 +3451,23 @@
       ]
     },
     {
+      "id": 5944547,
+      "title": "Всё, что касается",
+      "artist": "Звери",
+      "active": true,
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "minAmount": 0,
+      "attributes": [
+        "ПОП",
+        "Потанцевать"
+      ]
+    },
+    {
       "id": 4332028,
       "title": "Говори",
       "artist": "Звери",
@@ -3478,7 +3495,9 @@
       "capo": "",
       "bypassRequestLimits": false,
       "minAmount": 0,
-      "attributes": []
+      "attributes": [
+        "Потанцевать"
+      ]
     },
     {
       "id": 4174935,
@@ -7267,6 +7286,6 @@
       ]
     }
   ],
-  "total": 434,
-  "_version": 1783860011
+  "total": 435,
+  "_version": 1783864399
 }
