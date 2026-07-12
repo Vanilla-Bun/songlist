@@ -123,7 +123,7 @@
     },
     {
       "id": 4493129,
-      "title": "Moi Lolita",
+      "title": "Moi… Lolita",
       "artist": "Alizée",
       "active": true,
       "comment": "",
@@ -246,7 +246,7 @@
     },
     {
       "id": 4742546,
-      "title": "Steel rain",
+      "title": "Steel Rain",
       "artist": "Chris Cornell",
       "active": false,
       "comment": "",
@@ -281,7 +281,7 @@
     },
     {
       "id": 5306789,
-      "title": "Voyage Voyage",
+      "title": "Voyage, Voyage",
       "artist": "Desireless",
       "active": true,
       "comment": "",
@@ -370,7 +370,7 @@
     {
       "id": 4300720,
       "title": "Седьмой лепесток",
-      "artist": "Hi-Fi (аранж. Антон Токарев)",
+      "artist": "Hi-Fi / Антон Токарев",
       "active": true,
       "comment": "",
       "tabs": "",
@@ -385,8 +385,25 @@
       ]
     },
     {
+      "id": 4263854,
+      "title": "Nea Costică",
+      "artist": "Igor Cuciuc",
+      "active": true,
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "minAmount": 0,
+      "attributes": [
+        "На других языках",
+        "Молдавские"
+      ]
+    },
+    {
       "id": 5689786,
-      "title": "Dernière Danse",
+      "title": "Dernière danse",
       "artist": "Indila",
       "active": true,
       "comment": "",
@@ -401,6 +418,23 @@
         "Лирические",
         "Французские",
         "На других языках"
+      ]
+    },
+    {
+      "id": 4263841,
+      "title": "Eu numai, numai",
+      "artist": "Ionel Istrati",
+      "active": true,
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "minAmount": 0,
+      "attributes": [
+        "На других языках",
+        "Молдавские"
       ]
     },
     {
@@ -566,6 +600,23 @@
       ]
     },
     {
+      "id": 4174963,
+      "title": "La nunta asta",
+      "artist": "Lia Tăburcean",
+      "active": true,
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "minAmount": 0,
+      "attributes": [
+        "На других языках",
+        "Молдавские"
+      ]
+    },
+    {
       "id": 4175045,
       "title": "Твои глаза",
       "artist": "LOBODA",
@@ -716,7 +767,7 @@
     },
     {
       "id": 5111892,
-      "title": "Oui Mais Non",
+      "title": "Oui mais… non",
       "artist": "Mylène Farmer",
       "active": true,
       "comment": "",
@@ -748,6 +799,23 @@
         "ПОП",
         "На других языках",
         "Французские"
+      ]
+    },
+    {
+      "id": 4175009,
+      "title": "Foaie verde brebenoc",
+      "artist": "Nătălița Olaru",
+      "active": true,
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "minAmount": 0,
+      "attributes": [
+        "На других языках",
+        "Молдавские"
       ]
     },
     {
@@ -820,7 +888,7 @@
     },
     {
       "id": 4324094,
-      "title": "Cind rasare luna",
+      "title": "Când răsare luna",
       "artist": "Nicolae Sulac",
       "active": true,
       "comment": "",
@@ -944,7 +1012,7 @@
     },
     {
       "id": 4316384,
-      "title": "Still loving you",
+      "title": "Still Loving You",
       "artist": "Scorpions",
       "active": true,
       "comment": "",
@@ -980,7 +1048,7 @@
     },
     {
       "id": 4324095,
-      "title": "Mandra Mea Din Timisoara",
+      "title": "Mândra mea din Timișoara",
       "artist": "Sergiu Cabatut",
       "active": true,
       "comment": "",
@@ -991,6 +1059,7 @@
       "bypassRequestLimits": false,
       "minAmount": 0,
       "attributes": [
+        "Народные",
         "На других языках",
         "Молдавские"
       ]
@@ -1687,7 +1756,7 @@
     },
     {
       "id": 4190557,
-      "title": "Русская кадриль",
+      "title": "Весёлая кадриль",
       "artist": "ансамбль \"Чибатуха\"",
       "active": false,
       "comment": "",
@@ -3610,23 +3679,6 @@
       ]
     },
     {
-      "id": 4263854,
-      "title": "Nea Costică",
-      "artist": "Игорь Кучук",
-      "active": true,
-      "comment": "",
-      "tabs": "",
-      "lyrics": "",
-      "chords": "",
-      "capo": "",
-      "bypassRequestLimits": false,
-      "minAmount": 0,
-      "attributes": [
-        "На других языках",
-        "Молдавские"
-      ]
-    },
-    {
       "id": 4175029,
       "title": "Комарово",
       "artist": "Игорь Скляр",
@@ -3641,23 +3693,6 @@
       "attributes": [
         "Ретро",
         "ПОП"
-      ]
-    },
-    {
-      "id": 4263841,
-      "title": "Eu numai, numai",
-      "artist": "Ионел Истрати",
-      "active": true,
-      "comment": "",
-      "tabs": "",
-      "lyrics": "",
-      "chords": "",
-      "capo": "",
-      "bypassRequestLimits": false,
-      "minAmount": 0,
-      "attributes": [
-        "На других языках",
-        "Молдавские"
       ]
     },
     {
@@ -4433,23 +4468,6 @@
       "attributes": [
         "ПОП",
         "Потанцевать"
-      ]
-    },
-    {
-      "id": 4174963,
-      "title": "La nunta asta",
-      "artist": "Лія Табурчан",
-      "active": true,
-      "comment": "",
-      "tabs": "",
-      "lyrics": "",
-      "chords": "",
-      "capo": "",
-      "bypassRequestLimits": false,
-      "minAmount": 0,
-      "attributes": [
-        "На других языках",
-        "Молдавские"
       ]
     },
     {
@@ -5767,23 +5785,6 @@
       ]
     },
     {
-      "id": 4175009,
-      "title": "Foaie Verde Brebenoc",
-      "artist": "Нэтэлица Олару",
-      "active": true,
-      "comment": "",
-      "tabs": "",
-      "lyrics": "",
-      "chords": "",
-      "capo": "",
-      "bypassRequestLimits": false,
-      "minAmount": 0,
-      "attributes": [
-        "На других языках",
-        "Молдавские"
-      ]
-    },
-    {
       "id": 4175010,
       "title": "Обійми",
       "artist": "Океан Ельзи",
@@ -6867,6 +6868,22 @@
       ]
     },
     {
+      "id": 5944536,
+      "title": "Пупсик",
+      "artist": "Тина Кароль",
+      "active": true,
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "minAmount": 0,
+      "attributes": [
+        "ПОП"
+      ]
+    },
+    {
       "id": 4324093,
       "title": "Ой на горі два дубки",
       "artist": "Украинская народная песня",
@@ -7250,6 +7267,6 @@
       ]
     }
   ],
-  "total": 433,
-  "_version": 1783251752
-} 
+  "total": 434,
+  "_version": 1783860011
+}
