@@ -1687,6 +1687,39 @@
       ]
     },
     {
+      "id": 5946378,
+      "title": "А он мне нравится",
+      "artist": "Анна Герман",
+      "active": true,
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "minAmount": 0,
+      "attributes": [
+        "Ретро"
+      ]
+    },
+    {
+      "id": 5946379,
+      "title": "Когда цвели сады",
+      "artist": "Анна Герман",
+      "active": true,
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "minAmount": 0,
+      "attributes": [
+        "Ретро",
+        "Лирические"
+      ]
+    },
+    {
       "id": 4174919,
       "title": "Надежда",
       "artist": "Анна Герман",
@@ -4232,6 +4265,24 @@
       ]
     },
     {
+      "id": 5946376,
+      "title": "Ромашки спрятались",
+      "artist": "к/ф \"Моя улица\"",
+      "active": true,
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "minAmount": 0,
+      "attributes": [
+        "Ретро",
+        "Лирические",
+        "Из кинофильмов"
+      ]
+    },
+    {
       "id": 4174956,
       "title": "Ветер перемен",
       "artist": "к/ф \"Мэри Поппинс, до свидания\"",
@@ -4606,6 +4657,24 @@
       "attributes": []
     },
     {
+      "id": 5946375,
+      "title": "Два берега",
+      "artist": "Майя Кристалинская",
+      "active": true,
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "minAmount": 0,
+      "attributes": [
+        "Ретро",
+        "Лирические",
+        "Из кинофильмов"
+      ]
+    },
+    {
       "id": 4837546,
       "title": "Нежность",
       "artist": "Майя Кристалинская",
@@ -4707,7 +4776,7 @@
     },
     {
       "id": 5123607,
-      "title": "Шагает парень (Качает, качает, качает)",
+      "title": "Качает, качает (Шагает парень)",
       "artist": "Мария Пахоменко",
       "active": true,
       "comment": "",
@@ -7286,6 +7355,6 @@
       ]
     }
   ],
-  "total": 435,
-  "_version": 1783864399
+  "total": 439,
+  "_version": 1784129442
 }
