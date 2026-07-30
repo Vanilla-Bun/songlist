@@ -5377,7 +5377,7 @@
       "id": 4203646,
       "title": "От винта",
       "artist": "м/ф \"Смешарики\"",
-      "active": true,
+      "active": false,
       "comment": "",
       "tabs": "",
       "lyrics": "",
@@ -6891,6 +6891,24 @@
       ]
     },
     {
+      "id": 5963416,
+      "title": "За розовым морем",
+      "artist": "Татьяна Овсиенко",
+      "active": true,
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "minAmount": 0,
+      "attributes": [
+        "Ретро",
+        "ПОП",
+        "Потанцевать"
+      ]
+    },
+    {
       "id": 4350716,
       "title": "Баллада о трёх сыновьях",
       "artist": "Татьяна Шилова",
@@ -7355,6 +7373,6 @@
       ]
     }
   ],
-  "total": 439,
-  "_version": 1784129442
+  "total": 440,
+  "_version": 1785414465
 }
