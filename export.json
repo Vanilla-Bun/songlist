@@ -385,6 +385,23 @@
       ]
     },
     {
+      "id": 5963419,
+      "title": "Тону",
+      "artist": "HOLLYFLAME",
+      "active": true,
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "minAmount": 0,
+      "attributes": [
+        "ПОП",
+        "Потанцевать"
+      ]
+    },
+    {
       "id": 4263854,
       "title": "Nea Costică",
       "artist": "Igor Cuciuc",
@@ -7373,6 +7390,6 @@
       ]
     }
   ],
-  "total": 440,
-  "_version": 1785414465
+  "total": 441,
+  "_version": 1785416192
 }
