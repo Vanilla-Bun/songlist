@@ -1234,6 +1234,24 @@
       ]
     },
     {
+      "id": 5970324,
+      "title": "Me voy",
+      "artist": "Yasmin Levy",
+      "active": true,
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "minAmount": 0,
+      "attributes": [
+        "Лирические",
+        "Испанские",
+        "На других языках"
+      ]
+    },
+    {
       "id": 5474715,
       "title": "Je veux",
       "artist": "Zaz",
@@ -1281,6 +1299,23 @@
       "attributes": [
         "Потанцевать",
         "ПОП"
+      ]
+    },
+    {
+      "id": 5971227,
+      "title": "GAZ",
+      "artist": "Zivert",
+      "active": true,
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "minAmount": 0,
+      "attributes": [
+        "ПОП",
+        "Потанцевать"
       ]
     },
     {
@@ -2821,6 +2856,23 @@
       "minAmount": 0,
       "attributes": [
         "РОК"
+      ]
+    },
+    {
+      "id": 5970319,
+      "title": "Рюмка водки на столе",
+      "artist": "Григорий Лепс",
+      "active": true,
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "minAmount": 0,
+      "attributes": [
+        "Шансон",
+        "Лирические"
       ]
     },
     {
@@ -6468,6 +6520,24 @@
       ]
     },
     {
+      "id": 5970325,
+      "title": "Лирика",
+      "artist": "Сектор Газа",
+      "active": true,
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "minAmount": 0,
+      "attributes": [
+        "Ретро",
+        "РОК",
+        "Лирические"
+      ]
+    },
+    {
       "id": 5624741,
       "title": "Туман",
       "artist": "Сектор Газа",
@@ -7390,6 +7460,6 @@
       ]
     }
   ],
-  "total": 441,
-  "_version": 1785416192
+  "total": 445,
+  "_version": 1785999708
 }
