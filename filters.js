@@ -1,6 +1,6 @@
 const FILTER_DEFS = {
 	dsssr:		{ icon: "🎸", label: "DirectorSSSR", allow: false, highlight: "true", attributes: ["DirectorSSSR"] },
-	earth:		{ icon: "🌍", label: "На других языках", allow: true, attributes: ["Английские", "Французские", "Итальянские", "Молдавские", "Украинские", "Хинди"] },
+	earth:		{ icon: "🌍", label: "На других языках", allow: true, attributes: ["Английские", "Французские", "Итальянские", "Испанские", "Молдавские", "Украинские", "Хинди"] },
 	film:			{ icon: "🎬", label: "Из кинофильмов", allow: true, attributes: ["Из кинофильмов"] },
 	mult:			{ icon: "🧸", label: "Из мультфильмов", allow: true, attributes: ["Из мультфильмов"] },
 	ny:				{ icon: "🎄", label: "Новогодние", allow: false, attributes: ["Новогодние"] },
