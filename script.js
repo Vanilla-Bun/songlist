@@ -274,6 +274,8 @@ function normalize(value) {
 		.replace(/і/g, "и")
 		.replace(/ї/g, "и")
 		.replace(/є/g, "е")
+		.replace(/œ/g, "oe")
+		.replace(/æ/g, "ae")
 		.replace(/\$/g, "s")
 		.replace(/(?<=[а-я])s|s(?=[а-я])/g, "с")
 		.replace(/(?<=[а-я])z|z(?=[а-я])/g, "з")
@@ -352,8 +354,8 @@ function normalizeSong(song) {
 function indexSong(song) {
 	const titleN = normalize(song.title);
 	const artistN = normalize(song.artist);
-	const allAttrs = song._allAttributes ?? song.attributes;
-	const attrsN = allAttrs.map(normalize).join(", ");
+	const visibleAttrs = song.attributes;
+	const attrsN = visibleAttrs.map(normalize).join(", ");
 	const searchBlobRaw = [song.title, song.artist, allAttrs.join(" ")].join(" ");
 	return {
 		...song,
