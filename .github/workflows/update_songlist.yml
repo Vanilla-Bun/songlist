@@ -19,7 +19,10 @@ jobs:
       - name: Download latest export.json
         id: check
         run: |
-          curl -fL "https://api.streamersonglist.com/v1/streamers/39650/songs/export" -o temp.json
+          curl -fL \
+            -H "Authorization: User $USER_TOKEN" \
+            "https://api.streamersonglist.com/songs/export?streamer_id=39650" \
+            -o temp.json
           jq empty temp.json
 
           if diff -q \
