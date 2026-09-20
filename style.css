@@ -4,7 +4,7 @@
 	--color-surface-soft: #0d2c3c;
 	--color-surface-alt: #0b2535;
 	--color-border-subtle: rgba(255, 255, 255, 0.08);
-	--color-border-strong: rgba(255, 255, 255, 0.16);
+	--color-border-strong: rgba(255, 255, 255, 0.3);
 	--color-text: #eef3f9;
 	--color-text-muted: #8fa3b8;
 	--color-accent: #4fb5ff;
@@ -383,6 +383,17 @@ html[data-theme="light"] .toggle-switch {
 	color: var(--color-text-muted);
 }
 
+.searchclear .icon,
+.modal-actionicon .icon {
+	width: 14px;
+	height: 14px;
+}
+
+.pager-btn .icon {
+	width: 15px;
+	height: 15px;
+}
+
 .searchinput {
 	flex: 1;
 	border: none;
@@ -505,7 +516,7 @@ html[data-theme="light"] .toggle-switch {
 }
 
 .btn:hover {
-	background: var(--control-bg-hover);
+	background: rgba(20, 60, 86, 0.9);
 	box-shadow: var(--accent-ring-strong);
 	transform: translateY(-0.5px);
 }
@@ -563,6 +574,12 @@ html[data-theme="light"] .toggle-switch {
 	transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
 	-webkit-user-select: none;
 	user-select: none;
+}
+
+.chip:not(.chip--active):hover {
+	border-color: var(--color-border-strong);
+	box-shadow: var(--accent-ring-strong);
+	transform: translateY(-0.5px);
 }
 
 .chip .icon {
@@ -716,18 +733,18 @@ html[data-theme="light"] .toggle-switch {
 .tablesort-indicator {
 	font-size: 11px;
 	opacity: 0.45;
-	transform: rotate(0deg);
+	transform: rotate(90deg);
 	transition: transform var(--transition-fast), opacity var(--transition-fast);
 }
 
 th[aria-sort="ascending"] .tablesort-indicator {
 	opacity: 1;
-	transform: rotate(180deg);
+	transform: rotate(-90deg);
 }
 
 th[aria-sort="descending"] .tablesort-indicator {
 	opacity: 1;
-	transform: rotate(0deg);
+	transform: rotate(90deg);
 }
 
 /* Empty state */
@@ -929,12 +946,13 @@ html.ff-disable-mobile-cards .song-cards {
 	justify-content: center;
 	font-size: 13px;
 	cursor: pointer;
-	transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+	transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
 }
 
-.paginationbutton:hover {
-	background: var(--control-bg-hover);
+.paginationbutton:hover {      
 	color: var(--color-text);
+	border-color: var(--color-border-strong);
+	box-shadow: var(--accent-ring-strong);
 	transform: translateY(-0.5px);
 }
 
@@ -1051,7 +1069,9 @@ html.ff-disable-mobile-cards .song-cards {
 	background: var(--control-bg);
 	font-size: 13px;
 	transition: background var(--transition-fast),
-							border-color var(--transition-fast);
+							border-color var(--transition-fast),
+							box-shadow var(--transition-fast),
+							transform var(--transition-fast);
 	-webkit-appearance: none;
 	appearance: none;
 	font-family: inherit;
@@ -1059,20 +1079,14 @@ html.ff-disable-mobile-cards .song-cards {
 }
 
 .modal-action:hover {
-	background: var(--control-bg-hover);
-	border-color: var(--color-border-strong);
+	border-color: var(--color-border-strong);			
+	box-shadow: var(--accent-ring-strong);
+	transform: translateY(-0.5px);
 }
 
 .modal-action:focus-visible {
 	outline: 2px solid var(--color-accent);
 	outline-offset: 2px;
-}
-
-.modal-action__icon {
-	color: var(--color-text-muted);
-	font-size: 12px;
-	opacity: 0.75;
-	line-height: 1;
 }
 
 .modalerror {
@@ -1098,7 +1112,7 @@ html.ff-disable-mobile-cards .song-cards {
 	position: fixed;
 	left: 50%;
 	bottom: var(--space-8);
-	transform: translateX(-50%);
+	transform: translateX(-50%) translateY(8px);
 	padding: var(--space-3) var(--space-6);
 	border-radius: var(--radius-pill);
 	background: var(--panel-bg);
@@ -1108,12 +1122,13 @@ html.ff-disable-mobile-cards .song-cards {
 	white-space: nowrap;
 	opacity: 0;
 	pointer-events: none;
-	transition: opacity var(--transition-fast);
+	transition: opacity var(--transition-medium), transform var(--transition-medium);
 	z-index: 50;
 }
 
 .toast--visible {
 	opacity: 1;
+	transform: translateX(-50%) translateY(0);
 }
 
 .error-banner {
@@ -1239,10 +1254,11 @@ html[data-theme="light"] .tablehead {
 
 	.filters-toggle__icon {
 		transition: transform var(--transition-medium);
+		transform: rotate(90deg);
 	}
 
 	.filters-toggle[aria-expanded="true"] .filters-toggle__icon {
-		transform: rotate(180deg);
+		transform: rotate(-90deg);
 	}
 
 	.filters {
@@ -1321,6 +1337,90 @@ html[data-theme="light"] .tablehead {
 	}
 }
 
+/* Icons */
+.icon {
+	width: 16px;
+	height: 16px;
+	stroke: currentColor;
+	fill: none;
+	stroke-width: 2;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	flex-shrink: 0;
+	display: inline-block;
+	vertical-align: middle;
+	transition: transform var(--transition-fast);
+}
+
+#settingsButton:hover {
+	border-color: var(--color-border-strong);
+	box-shadow: var(--accent-ring-strong);
+}
+
+.settings-close-button:hover {
+	border-color: var(--color-border-strong);
+	box-shadow: var(--accent-ring-strong);
+}
+
+#settingsButton .icon {
+	transition-property: opacity, color, background-color;
+}
+
+#settingsButton:hover .icon {
+	transition: none;
+	transform: scaleX(-1);
+}
+
+.modal-close-button:hover .icon,
+.settings-close-button:hover .icon,
+.searchclear:hover .icon {
+	transform: rotate(90deg);
+}
+
+/* Theme switch transition */
+body {
+	transition: background-color var(--transition-medium), color var(--transition-medium);
+}
+
+/* Modal + settings panel entrance */
+.modal {
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity var(--transition-medium), visibility var(--transition-medium);
+}
+
+.modal[aria-hidden="false"] {
+	display: flex;
+	opacity: 1;
+	visibility: visible;
+}
+
+.modaldialog {
+	transform: scale(0.96);
+	transition: transform var(--transition-medium);
+}
+
+.modal[aria-hidden="false"] .modaldialog {
+	transform: scale(1);
+}
+
+.settings-panel {
+	opacity: 0;
+	transform: translateY(-4px) scale(0.97);
+	transition: opacity var(--transition-fast), transform var(--transition-fast), visibility var(--transition-fast);
+	visibility: hidden;
+}
+
+.settings-panel[hidden] {
+	display: block;
+}
+
+.settings-panel:not([hidden]) {
+	opacity: 1;
+	transform: translateY(0) scale(1);
+	visibility: visible;
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
 	html {
@@ -1331,7 +1431,12 @@ html[data-theme="light"] .tablehead {
 	.searchfield,
 	.tablerow,
 	.paginationbutton,
-	.toast {
+	.toast,
+	.icon,
+	body,
+	.modal,
+	.modaldialog,
+	.settings-panel {
 		transition: none !important;
 	}
 	.btn:hover,

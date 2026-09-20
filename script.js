@@ -2,19 +2,18 @@ const CONFIG = { DATA_URL: "export.json" };
 
 const ENABLE_MOBILE_CARDS = true;
 const ENABLE_I18N = true;
-const ENABLE_RANDOM_PLACEHOLDER = true;
-
-const TAGS_HIDDEN = new Set(["DirectorSSSR"]);	// пусто: Set()  •  с данными: Set(["attr1", "attr2"])
+const ENABLE_RANDOM_PLACEHOLDER = true;    
 
 const SUPPORTED_LOCALES = ["ru", "en"];
-const DEFAULT_LOCALE = "ru";
-const LOCALE_STORAGE_KEY = "ui.locale";
-
 const SUPPORTED_THEMES = ["dark", "light"];
+const DEFAULT_LOCALE = "ru";
 const DEFAULT_THEME = "dark";
+const LOCALE_STORAGE_KEY = "ui.locale";
 const THEME_STORAGE_KEY = "ui.theme";
-const EMPTY_STATE_ICON = "⌀";
-const MAX_TAGS_PER_ROW = 2;
+
+const MAX_TAGS_PER_ROW = 2;		
+const EMPTY_STATE_ICON = '<svg class="icon"><use href="#i-search-x"/></svg>';
+const TAGS_HIDDEN = new Set(["DirectorSSSR"]);	// пусто: Set()  •  с данными: Set(["attr1", "attr2"])
 
 function normalizeLocale(input) {
 	if (input === null || input === undefined) return null;
@@ -147,7 +146,7 @@ function setRandomSearchPlaceholder(allSongs) {
 	const title = (pick.title ?? "").toString().trim();
 	if (!artist && !title) return;
 
-	input.placeholder = `${prefix} ${artist} — ${title}`.trim();
+	input.placeholder = `${prefix} ${artist} - ${title}`.trim();
 }
 
 function applySearchPlaceholder(allSongs, locale = appState?.ui?.locale ?? DEFAULT_LOCALE) {
@@ -209,31 +208,31 @@ function syncFiltersToUrl(activeKeys) {
  *   Используется в SongTable.getRowKey() и SongCards.getCardKey()
  *   для key-based reconciliation DOM-элементов.
  *
- * @property {string} title    — Оригинальное название песни (для отображения)
- * @property {string} artist   — Оригинальное имя исполнителя (для отображения)
+ * @property {string} title    - Оригинальное название песни (для отображения)
+ * @property {string} artist   - Оригинальное имя исполнителя (для отображения)
  *
  * @property {string[]} attributes
  *   Массив категорий/тегов, прошедших белый список isAllowedTagAttribute().
  *   Используется для рендеринга тегов и фильтрации.
  *
- * @property {string} searchTitle    — normalize(title): без диакритики, lowercase
- * @property {string} searchArtist   — normalize(artist): без диакритики, lowercase
- * @property {string} searchAttributes — normalize(attributes).join(", ")
+ * @property {string} searchTitle    - normalize(title): без диакритики, lowercase
+ * @property {string} searchArtist   - normalize(artist): без диакритики, lowercase
+ * @property {string} searchAttributes - normalize(attributes).join(", ")
  *
  * @property {string} searchBlob
  *   Единая предвычисленная строка для полнотекстового поиска:
  *   normalize(title + " " + artist + " " + attributes.join(" ")).
  *   Используется в applySearch() для быстрого String.includes() без повторной нормализации.
  *
- * @property {boolean} [active] — Флаг активности из API (фильтруется до нормализации)
+ * @property {boolean} [active] - Флаг активности из API (фильтруется до нормализации)
  */
 
 /**
  * @typedef {Object} PaginationMeta
- * @property {number} startIndex  — Индекс первого элемента на странице (0-based)
- * @property {number} endIndex    — Индекс последнего элемента (exclusive)
+ * @property {number} startIndex  - Индекс первого элемента на странице (0-based)
+ * @property {number} endIndex    - Индекс последнего элемента (exclusive)
  * @property {number} totalPages
- * @property {number} totalCount  — Общее число отфильтрованных песен
+ * @property {number} totalCount  - Общее число отфильтрованных песен
  * @property {number} currentPage
  */
 
@@ -244,7 +243,7 @@ function syncFiltersToUrl(activeKeys) {
  *   filters: {activeKeys: string[]}, sort: {column: string|null, direction: string},
  *   pagination: {currentPage: number, itemsPerPageRaw: number},
  *   modal: {isOpen: boolean, selectedSong: Song|null, isCardNumberLoading: boolean,
- *            cardNumber: string|null, cardNumberError: string|null, lastCopyAction: string|null},
+ *   cardNumber: string|null, cardNumberError: string|null, lastCopyAction: string|null},
  *   toast: {isVisible: boolean, message: string} }} ui
  */
 
@@ -269,7 +268,7 @@ function normalize(value) {
 		.toString()
 		.normalize("NFD")
 		.replace(/[\u0300-\u036f]/g, "")
-		.toLowerCase()				
+		.toLowerCase()
 		.replace(/ё/g, "е")
 		.replace(/і/g, "и")
 		.replace(/ї/g, "и")
@@ -356,7 +355,7 @@ function indexSong(song) {
 	const artistN = normalize(song.artist);
 	const visibleAttrs = song.attributes;
 	const attrsN = visibleAttrs.map(normalize).join(", ");
-	const searchBlobRaw = [song.title, song.artist, allAttrs.join(" ")].join(" ");
+	const searchBlobRaw = [song.title, song.artist, visibleAttrs.join(" ")].join(" ");
 	return {
 		...song,
 		searchTitle: titleN,
@@ -431,20 +430,16 @@ function applySort(songs, sortState, locale) {
 	const sorted = songs.slice();
 	const column = sortState.column;
 	const direction = sortState.direction === "desc" ? "desc" : "asc";
-
-	const pick = (s) => {
-		if (column === "title") return s.searchTitle;
-		if (column === "artist") return s.searchArtist;
-		return "";
-	};
-
 	const loc = normalizeLocale(locale) || DEFAULT_LOCALE;
 
+	const pick = (s) => column === "title" ? s.searchTitle : s.searchArtist;
+	const fallbackPick = (s) => column === "title" ? s.searchArtist : s.searchTitle;
+
 	return sorted.sort((a, b) => {
-		const valA = pick(a);
-		const valB = pick(b);
-		const cmp = valA.localeCompare(valB, loc);
-		return direction === "asc" ? cmp : -cmp;
+		const cmp = pick(a).localeCompare(pick(b), loc);
+		if (cmp !== 0) return direction === "asc" ? cmp : -cmp;
+
+		return fallbackPick(a).localeCompare(fallbackPick(b), loc);
 	});
 }
 
@@ -540,7 +535,7 @@ function decodeCardNumber(encoded) {
 // -------------------------
 // Focus management modal
 // -------------------------
-const focusManagement = { triggerElement: null, keydownHandler: null, backdropClickHandler: null, closeButtonHandlers: [] };
+const focusManagement = { triggerElement: null, abortController: null };
 
 function getFocusableElements(container) {
 	if (!container) return [];
@@ -553,8 +548,14 @@ function setupModalFocus(modalRoot, dialogElement, onRequestClose) {
 	if (!modalRoot || !dialogElement) return;
 
 	focusManagement.triggerElement = document.activeElement;
+	if (focusManagement.abortController) {
+			focusManagement.abortController.abort();
+	}
 
-	focusManagement.keydownHandler = (e) => {
+	focusManagement.abortController = new AbortController();
+	const { signal } = focusManagement.abortController;
+	
+	const keydownHandler = (e) => {
 		if (!appState.ui.modal.isOpen) return;
 
 		if (e.key === "Escape") {
@@ -589,39 +590,24 @@ function setupModalFocus(modalRoot, dialogElement, onRequestClose) {
 		}
 	};
 
-	document.addEventListener("keydown", focusManagement.keydownHandler);
+	document.addEventListener("keydown", keydownHandler, { signal });
 
-	focusManagement.backdropClickHandler = (e) => {
+	modalRoot.addEventListener("click", (e) => {
 		const closeEl = e.target.closest("[data-modal-close]");
-		if (closeEl) return;
+		if (closeEl) { e.preventDefault(); onRequestClose(); return; }
 		if (e.target === modalRoot) onRequestClose();
-	};
-
-	modalRoot.addEventListener("click", focusManagement.backdropClickHandler);
-
-	const closeButtons = dialogElement.querySelectorAll("[data-modal-close]");
-	focusManagement.closeButtonHandlers = Array.from(closeButtons).map((btn) => {
-		const h = (e) => { e.preventDefault(); onRequestClose(); };
-		btn.addEventListener("click", h);
-		return { element: btn, handler: h };
-	});
+	}, { signal });
 
 	setTimeout(() => dialogElement.focus(), 0);
 }
 
-function teardownModalFocus(modalRoot) {
-	if (focusManagement.keydownHandler) document.removeEventListener("keydown", focusManagement.keydownHandler);
-	if (modalRoot && focusManagement.backdropClickHandler) modalRoot.removeEventListener("click", focusManagement.backdropClickHandler);
-	focusManagement.closeButtonHandlers.forEach(({ element, handler }) => {
-		if (element && handler) element.removeEventListener("click", handler);
-	});
+function teardownModalFocus() {
+	if (focusManagement.abortController) focusManagement.abortController.abort();
 
 	const toFocus = focusManagement.triggerElement;
 
 	focusManagement.triggerElement = null;
-	focusManagement.keydownHandler = null;
-	focusManagement.backdropClickHandler = null;
-	focusManagement.closeButtonHandlers = [];
+	focusManagement.abortController = null;
 
 	setTimeout(() => { if (toFocus && typeof toFocus.focus === "function") toFocus.focus(); }, 0);
 }
@@ -1004,6 +990,11 @@ function updateState(state, action) {
 let toastTimerId = null;
 let lastPlaceholderShaApplied = null;
 
+function trackEvent(name, data) {
+	if (typeof window.umami?.track !== "function") return;
+	window.umami.track(name, data);
+}
+
 function runToastEffects(action) {
 	if (action.type === "TOAST_SHOW") {
 		const duration =
@@ -1142,6 +1133,77 @@ function runJsonEffects(action, nextState) {
 	applySearchPlaceholder(nextState.data.allSongs, nextState.ui.locale);
 }
 
+function runAnalyticsEffects(action, prevState, nextState) {
+	switch (action.type) {
+		case "SEARCH_SET_QUERY": {
+			const prevQuery = prevState.ui.search.query.trim();
+			const nextQuery = nextState.ui.search.query.trim();
+
+			if (!prevQuery && nextQuery) trackEvent("search");
+			break;
+		}
+		
+		case "FILTER_TOGGLE": {
+			const key = action.payload?.key;
+			if (!key) break;
+			
+			const isActive  = Array.isArray(nextState?.ui?.filters?.activeKeys) && 
+												nextState.ui.filters.activeKeys.includes(key);
+			
+			trackEvent("filter_toggle", { category: key, active: isActive });
+			break;
+		}
+
+		case "LOCALE_SET": {
+			trackEvent("language_change", { locale: action.payload?.locale });
+			break;
+		}
+
+		case "THEME_SET": {
+			trackEvent("theme_change", { theme: action.payload?.theme });
+			break;
+		}
+
+		case "ITEMS_PER_PAGE_SET": {
+			const prevValue = prevState.ui.pagination.itemsPerPageRaw;
+			const nextValue = nextState.ui.pagination.itemsPerPageRaw;
+
+			if (prevValue !== nextValue) {
+				trackEvent("items_per_page", { value: nextValue });
+			}
+			break;
+		}
+
+		case "PAGE_FIRST":
+		case "PAGE_PREV":
+		case "PAGE_NEXT":
+		case "PAGE_LAST":
+		case "PAGE_SET":
+			trackEvent("pagination");
+			break;
+
+		case "MODAL_OPEN": {
+			const wasOpen = !!prevState?.ui?.modal?.isOpen;
+			const isOpen = !!nextState?.ui?.modal?.isOpen;
+			
+			if (!wasOpen && isOpen) {
+				trackEvent("modal_open");
+			}
+			break;
+		}
+
+		case "CLIPBOARD_COPY": {
+			const copyType = action.payload?.type;
+			if (copyType === "song") {
+				trackEvent("copy_song");
+			} else if (copyType === "card") {
+				trackEvent("copy_card");
+			}
+			break;
+		}
+	}
+}
+
 async function handleSideEffects(action, prevState, nextState) {
 	runToastEffects(action);
 	persistUiSettings(action, nextState);
@@ -1151,6 +1213,7 @@ async function handleSideEffects(action, prevState, nextState) {
 	runStickyEffects(action);
 	runLiveRegionEffects(action);
 	runJsonEffects(action, nextState);
+	runAnalyticsEffects(action, prevState, nextState);
 }
 
 function dispatch(action) {
@@ -1183,7 +1246,7 @@ function renderFilterButtons(container) {
 			const icon = document.createElement("span");
 			icon.className = "icon";
 			icon.setAttribute("aria-hidden", "true");
-			icon.textContent = def.icon ?? "";
+			icon.innerHTML = def.icon ?? "";
 
 			const label = document.createElement("span");
 			label.textContent = def.label ?? "";
@@ -1678,7 +1741,7 @@ function createEmptyStateContent(locale, extraClass, context) {
 	const icon = document.createElement("span");
 	icon.className = "table-emptyicon";
 	icon.setAttribute("aria-hidden", "true");
-	icon.textContent = EMPTY_STATE_ICON;
+	icon.innerHTML = EMPTY_STATE_ICON;
 
 	const titleEl = document.createElement("div");
 	titleEl.textContent = t("table.emptyTitle", locale);
@@ -2158,7 +2221,7 @@ const Modal = {
 
 			if (this.modalSelectedSongTextElement) {
 				this.modalSelectedSongTextElement.textContent =
-					`${selectedSong.artist} — ${selectedSong.title}`.trim();
+					`${selectedSong.artist} - ${selectedSong.title}`.trim();
 			}
 		} else {
 			this.cachedSelectedSong = null;
@@ -2412,20 +2475,16 @@ async function checkAndLoadJSON() {
 			console.warn("[checkAndLoadJSON] Сеть недоступна, используем кэш:", error?.message);
 		}
 	}
-}		
+}
 
 function mapApiSongToInternal(raw) {
 	return {
 		id: raw.id ?? null,
 		title: raw.title ?? raw.name ?? "",
 		artist: raw.artist?.name ?? raw.artist ?? "",
-		attributes: Array.isArray(raw.attributes)
-			? raw.attributes
-			: Array.isArray(raw.tags)
-				? raw.tags.map(t => t.name ?? t)
-				: typeof raw.attributes === "string"
-					? raw.attributes.split(",")
-					: [],
+		attributes: Array.isArray(raw.attributeNames)
+			? raw.attributeNames
+			: [],
 		active: raw.active ?? true
 	};
 }

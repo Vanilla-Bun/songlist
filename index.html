@@ -15,9 +15,36 @@
 	<link rel="icon" type="image/x-icon" href="icons/favicon.png">
 	
 	<!-- Styles -->
-  <link rel="stylesheet" href="style.css" />
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+	<svg style="display:none" aria-hidden="true">
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+    <symbol id="i-sliders-horizontal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 5H3"/>  <path d="M12 19H3"/><path d="M14 3v4"/><path d="M16 17v4"/><path d="M21 12h-9"/><path d="M21 19h-5"/><path d="M21 5h-7"/><path d="M8 10v4"/><path d="M8 12H3"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
+    <symbol id="i-chevron-first" viewBox="0 0 24 24"><path d="m17 18-6-6 6-6"/><line x1="7" y1="6" x2="7" y2="18"/></symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-chevron-last" viewBox="0 0 24 24"><path d="m7 6 6 6-6 6"/><line x1="17" y1="6" x2="17" y2="18"/></symbol>
+		
+		<symbol id="i-donationalerts" viewBox="0 0 69 80" fill="currentColor">
+			<path d="M34.859 46.588h-5.42a1.18 1.18 0 0 1-.83-.326.93.93 0 0 1-.284-.77l.479-4.888c.046-.52.531-.92 1.113-.918h5.42c.316-.001.617.118.83.327s.315.49.283.77l-.478 4.888c-.047.52-.532.919-1.113.917m.868-9.568h-5.52c-.61 0-1.105-.476-1.105-1.064l1.502-16.51c.067-.537.542-.94 1.104-.936h5.521c.61 0 1.104.476 1.104 1.063l-1.546 16.522c-.07.516-.519.908-1.06.925m32.464-19.254c.587.682.874 1.57.796 2.464L66.83 44.76a3.34 3.34 0 0 1-1.008 2.114L48.174 63.908a3.38 3.38 0 0 1-2.35.942H27.038L10.5 80l1.28-15.16H3.37a3.38 3.38 0 0 1-2.484-1.085 3.33 3.33 0 0 1-.873-2.553L5.145 3.006A3.36 3.36 0 0 1 8.503 0H51.33c.986 0 1.922.428 2.562 1.172zM55.11 40.08l1.372-15.14a3.33 3.33 0 0 0-.867-2.445l-8.067-9.259a3.38 3.38 0 0 0-2.541-1.152H19.596a3.36 3.36 0 0 0-3.358 3.006l-3.025 34.068a3.37 3.37 0 0 0 .887 2.54 3.42 3.42 0 0 0 2.47 1.098h24.99a3.38 3.38 0 0 0 2.33-.922l10.214-9.67a3.34 3.34 0 0 0 1.009-2.124" fill-rule="nonzero"/>
+		</symbol>
+		<symbol id="i-donatepay" viewBox="0 0 103 51" fill="currentColor">
+			<path d="M74.342 17.993c0-1.807 1.447-3.271 3.232-3.271s3.232 1.464 3.232 3.271-1.447 3.272-3.232 3.272-3.233-1.465-3.233-3.272m-7.003 7.088c0-1.807 1.448-3.271 3.233-3.271s3.232 1.464 3.232 3.271-1.447 3.272-3.232 3.272-3.233-1.465-3.233-3.272m17.239-3.271c-1.785 0-3.232 1.464-3.232 3.271s1.447 3.272 3.232 3.272 3.232-1.465 3.232-3.272-1.447-3.271-3.232-3.271M74.342 32.17c0-1.807 1.447-3.272 3.232-3.272s3.232 1.465 3.232 3.271c0 1.807-1.447 3.272-3.232 3.272s-3.233-1.465-3.233-3.272"/>
+			<path fill-rule="evenodd" clip-rule="evenodd" d="m55.427 37.575.009.012.008.013c5.033 7.35 11.426 13.108 21.86 13.108 13.813 0 25.05-11.374 25.05-25.354C102.354 11.393 91.098 0 77.304 0 69.63 0 63.686 3.324 59.303 7.928c-4.285 4.503-7.298 10.1-10.264 15.622l-.297.553c-3.036 5.642-6.102 11.148-9.734 14.988-1.814 1.923-3.73 3.495-6 4.58-2.276 1.09-4.853 1.662-7.958 1.662-10.945 0-19.74-8.901-19.74-19.98 0-11.02 8.85-19.978 19.74-19.978 8.836 0 14.088 5.064 18.484 11.83a135 135 0 0 1 2.963-5.032C41.519 5.279 35.154 0 25.05 0 11.238 0 0 11.374 0 25.354c0 13.96 11.256 25.354 25.05 25.354 7.604 0 13.545-3.324 17.883-7.928 2.927-3.105 5.251-6.746 7.387-10.534l.99-1.755.906 1.8c.688 1.366 2.024 3.649 3.21 5.284m2.284-6.123.01.016c4.624 7.733 10.036 13.865 19.583 13.865 10.89 0 19.74-8.958 19.74-19.98 0-11.077-8.794-19.978-19.74-19.978-6.375 0-10.48 2.341-14.19 6.238-3.022 3.172-5.82 8.175-8.291 12.665l-.192.348.075.39c.164.855.728 2.098 1.29 3.221a87 87 0 0 0 1.706 3.2z"/>
+			<path d="M22.626 16.357h4.31V22.9H33.4v4.362h-6.465v6.543h-4.31v-6.543h-6.464V22.9h6.465z"/>
+		</symbol>
+		<symbol id="i-vkvideo" viewBox="0 0 100 100" fill="currentColor">
+			<path fill-rule="evenodd" clip-rule="evenodd" d="M99.121 21.665c-.878-6.535-2.636-11.12-6.15-14.636-3.515-3.514-8.1-5.272-14.636-6.15a64 64 0 0 0-1.89-.225C70.185 0 62.255 0 52 0h-4C36.989 0 28.658 0 22.196.81c-6.82.854-11.558 2.61-15.167 6.22-3.514 3.514-5.272 8.1-6.15 14.635a64 64 0 0 0-.225 1.89C0 29.815 0 37.745 0 48v4c0 11.011 0 19.342.81 25.804.854 6.82 2.61 11.558 6.22 15.167 3.02 3.02 6.833 4.743 11.996 5.726C25.874 100 35.096 100 48 100h4c11.315 0 19.8 0 26.335-.879 6.535-.878 11.12-2.636 14.636-6.15 3.02-3.022 4.743-6.834 5.726-11.997C100 74.126 100 64.904 100 52v-4c0-11.315 0-19.8-.879-26.335M42.53 31.56C41.3 33.24 41.3 36.16 41.3 42v16c0 5.83 0 8.75 1.23 10.44a6.42 6.42 0 0 0 4.52 2.61c2.072.22 4.58-1.228 9.599-4.125l14.046-8.113c4.96-2.868 7.453-4.31 8.295-6.202.74-1.66.74-3.56 0-5.22-.85-1.9-3.37-3.36-8.43-6.28l-13.85-8c-5.06-2.92-7.59-4.38-9.66-4.16a6.42 6.42 0 0 0-4.52 2.61M27.135 95.634a74 74 0 0 1-4.937-.477c-6.091-.82-9.692-2.367-12.34-5.015s-4.196-6.248-5.015-12.34C4.008 71.594 4 63.427 4 52v-4c0-11.427.008-19.594.843-25.801.82-6.093 2.367-9.694 5.015-12.341 2.647-2.648 6.249-4.196 12.34-5.015a73 73 0 0 1 4.891-.474A17.7 17.7 0 0 0 23.7 7.02c-7.03 7.03-7.03 18.34-7.03 40.97v4c0 22.63 0 33.94 7.03 40.97a17.6 17.6 0 0 0 3.435 2.674"/>
+		</symbol>
+		<symbol id="i-twitch" viewBox="0 0 24 24" fill="currentColor">
+			<path d="M12 6h2v5h-2V6Zm4 0h2v5h-2V6Z"/>
+			<path fill-rule="evenodd" clip-rule="evenodd" d="M6 1h16v12l-7 7h-4l-4 4v-4H2V5l4-4Zm14 2H7v12h3v4l4-4h3l3-3V3Z"/>
+		</symbol>
+  </svg>
 	<div id="data-error" class="error-banner" hidden></div>
   <div class="page">
     <main class="pageinner" id="app" aria-labelledby="page-title">
@@ -31,18 +58,18 @@
       <section class="toolbar" role="region" data-i18n-aria-label="app.controlsRegion">
         <div class="search">
           <label class="searchlabel" for="searchInput" id="searchInputLabel" data-i18n-text="search.label"></label>
-          <div class="searchfield">
-            <span class="searchicon" aria-hidden="true">🔎</span>
+					<div class="searchfield">
+            <span class="searchicon" aria-hidden="true"><svg class="icon"><use href="#i-search"/></svg></span>
 						<input id="searchInput" class="searchinput" type="search" autocomplete="off" placeholder="Поиск..." aria-labelledby="searchInputLabel" data-i18n-placeholder="search.placeholderDefault"/>
-            <button type="button" id="clearSearch" class="searchclear" data-i18n-aria-label="search.clearAria">×</button>
+            <button type="button" id="clearSearch" class="searchclear" data-i18n-aria-label="search.clearAria"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button>
           </div>
-					<button type="button" id="settingsButton" class="btn btn--icon btn--ghost" aria-expanded="false" aria-controls="settingsPanel" data-i18n-aria-label="app.settings">⚙</button>
+					<button type="button" id="settingsButton" class="btn btn--icon btn--ghost" aria-expanded="false" aria-controls="settingsPanel" data-i18n-aria-label="app.settings" data-umami-event="settings_open"><svg class="icon" aria-hidden="true"><use href="#i-sliders-horizontal"/></svg></button>
 				</div>
 				
 				<button type="button" id="filtersToggleButton" class="btn btn--sm btn--ghost filters-toggle" aria-expanded="false" aria-controls="filtersBar">
-					<span class="filters-toggle__icon left" aria-hidden="true">▼</span>
+					<span class="filters-toggle__icon left" aria-hidden="true"><svg class="icon"><use href="#i-play"/></svg></span>
 					<span id="filtersToggleText" data-i18n-text="app.filtersToggle"></span>
-					<span class="filters-toggle__icon right" aria-hidden="true">▼</span>
+					<span class="filters-toggle__icon right" aria-hidden="true"><svg class="icon"><use href="#i-play"/></svg></span>
 				</button>
 				
         <div class="filters" id="filtersBar" role="toolbar" data-i18n-aria-label="app.filtersToggle"></div>
@@ -51,7 +78,7 @@
 					<div class="settings-header">
 						<div class="settings-title" id="settingsTitle" data-i18n-text="app.settingsTitle"></div>
 						<button type="button" class="btn btn--icon btn--ghost modal-close-button settings-close-button" id="settingsCloseButton" data-i18n-aria-label="modal.closeAria">
-							<span aria-hidden="true">×</span>
+							<span aria-hidden="true"><svg class="icon"><use href="#i-x"/></svg></span>
 						</button>
 					</div>
 					
@@ -110,18 +137,18 @@
 
             <thead class="song-tablehead tablehead">
               <tr>
-                <th scope="col" class="song-tablehead-cell song-tablehead-cell--sortable" aria-sort="none">
+								<th scope="col" class="song-tablehead-cell song-tablehead-cell--sortable" aria-sort="none">
                   <button type="button" id="sortTitle" class="tablesort-button" aria-describedby="sort-instruction" data-i18n-aria-label="table.col.title">
                     <span data-i18n-text="table.col.title">Название</span>
-                    <span class="tablesort-indicator" aria-hidden="true">▼</span>
+                    <span class="tablesort-indicator" aria-hidden="true"><svg class="icon"><use href="#i-play"/></svg></span>
                   </button>
                 </th>
                 <th scope="col" class="song-tablehead-cell song-tablehead-cell--sortable" aria-sort="none">
                   <button type="button" id="sortArtist" class="tablesort-button" aria-describedby="sort-instruction" data-i18n-aria-label="table.col.artist">
                     <span data-i18n-text="table.col.artist">Исполнитель</span>
-                    <span class="tablesort-indicator" aria-hidden="true">▼</span>
+                    <span class="tablesort-indicator" aria-hidden="true"><svg class="icon"><use href="#i-play"/></svg></span>
                   </button>
-                </th>
+                </th>								
                 <th scope="col" class="song-tablehead-cell tablecell--tags">
                   <span data-i18n-text="table.col.tags"></span>
                 </th>
@@ -158,10 +185,10 @@
 					<div class="table-footerinfo paginationinfo" id="pageInfo">0–0 / 0</div>
 					
           <div class="table-footerpager paginationcontrols" role="group" data-i18n-aria-label="pagination.controlsAria">
-            <button type="button" class="pager-btn btn btn--ghost paginationbutton" id="firstPage" data-i18n-aria-label="pagination.firstAria">⏮</button>
-            <button type="button" class="pager-btn btn btn--ghost paginationbutton" id="prevPage" data-i18n-aria-label="pagination.prevAria">◀</button>
-            <button type="button" class="pager-btn btn btn--ghost paginationbutton" id="nextPage" data-i18n-aria-label="pagination.nextAria">▶</button>
-            <button type="button" class="pager-btn btn btn--ghost paginationbutton" id="lastPage" data-i18n-aria-label="pagination.lastAria">⏭</button>
+						<button type="button" class="pager-btn btn btn--ghost paginationbutton" id="firstPage" data-i18n-aria-label="pagination.firstAria"><svg class="icon" aria-hidden="true"><use href="#i-chevron-first"/></svg></button>
+            <button type="button" class="pager-btn btn btn--ghost paginationbutton" id="prevPage" data-i18n-aria-label="pagination.prevAria"><svg class="icon" aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
+            <button type="button" class="pager-btn btn btn--ghost paginationbutton" id="nextPage" data-i18n-aria-label="pagination.nextAria"><svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg></button>
+            <button type="button" class="pager-btn btn btn--ghost paginationbutton" id="lastPage" data-i18n-aria-label="pagination.lastAria"><svg class="icon" aria-hidden="true"><use href="#i-chevron-last"/></svg></button>
           </div>
         </footer>
       </section>
@@ -174,7 +201,7 @@
 				<h2 id="requestModalTitle" class="modaltitle"></h2>
 
 				<button	type="button"	class="btn btn--icon btn--ghost modal-close-button" data-modal-close data-i18n-aria-label="modal.closeAria">
-					<span aria-hidden="true">×</span>
+					<span aria-hidden="true"><svg class="icon"><use href="#i-x"/></svg></span>
 				</button>
 			</header>
 
@@ -185,9 +212,9 @@
 					<span class="modal-section-icon" aria-hidden="true">🎵</span>
 					<span class="modalconditions-text" data-i18n-text="modal.conditionsMain"></span><br/>
 					<span class="modalconditions-subtext" data-i18n-text="modal.conditionsSub"></span>
-					<a href="https://www.twitch.tv/vanillabun" target="_blank" rel="noopener noreferrer">Twitch<span class="modal-action__icon" aria-hidden="true">↗</span></a>
+					<a href="https://www.twitch.tv/vanillabun" data-umami-event="open_twitch" target="_blank" rel="noopener noreferrer">Twitch</a>
 					•
-					<a href="https://live.vkvideo.ru/vanillabun" target="_blank" rel="noopener noreferrer">VkVideo<span class="modal-action__icon" aria-hidden="true">↗</span></a>
+					<a href="https://live.vkvideo.ru/vanillabun" data-umami-event="open_vkvideo" target="_blank" rel="noopener noreferrer">VkVideo</a>
 				</p>
 			</div>
 			
@@ -199,7 +226,7 @@
 				
 				<button	type="button"	id="copySong"	class="modal-action" data-i18n-aria-label="modal.copyAria">
 					<span class="modalsong-name" id="modalArtistTitle" role="status" aria-live="polite"></span>
-					<span class="modal-actionicon" aria-hidden="true">📋</span>
+					<span class="modal-actionicon" aria-hidden="true"><svg class="icon"><use href="#i-copy"/></svg></span>
 				</button>
 			</div>
 
@@ -211,11 +238,14 @@
 			</div>
 
 			<div class="modallinks">
-				<a href="https://www.donationalerts.com/r/vanilla_bun_"	target="_blank"	rel="noopener noreferrer"	class="modallink">
-					https://www.donationalerts.com/r/vanilla_bun_ <span class="modal-action__icon" aria-hidden="true">↗</span>
+				<a href="https://www.donationalerts.com/r/vanilla_bun_"	data-umami-event="open_donationalerts" target="_blank"	rel="noopener noreferrer"	class="modallink">
+					https://www.donationalerts.com/r/vanilla_bun_
 				</a>
-				<a href="https://new.donatepay.ru/@vanillabun" target="_blank" rel="noopener noreferrer" class="modallink">
-					https://new.donatepay.ru/@vanillabun <span class="modal-action__icon" aria-hidden="true">↗</span>
+				<a href="https://new.donatepay.ru/@vanillabun" data-umami-event="open_donatepay" target="_blank" rel="noopener noreferrer" class="modallink">
+					https://new.donatepay.ru/@vanillabun
+				</a>
+				<a href="https://trula.io/dp/twitch/vanilla__bun" data-umami-event="open_trula" target="_blank" rel="noopener noreferrer" class="modallink">
+					https://trula.io/dp/twitch/vanilla__bun
 				</a>
 			</div>
 
@@ -227,7 +257,7 @@
 				
 				<button	type="button"	id="cardNumber"	class="modal-action" data-i18n-aria-label="modal.cardCopyAreaAria">
 					<span id="cardNumberValue">...</span>
-					<span class="modal-actionicon" aria-hidden="true">📋</span>
+					<span class="modal-actionicon" aria-hidden="true"><svg class="icon"><use href="#i-copy"/></svg></span>
 				</button>
 				
 				<div id="cardNumberError"	class="modalerror" role="alert"	hidden></div>
@@ -243,10 +273,8 @@
   <div id="live-region-polite" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
   <div id="live-region-assertive" class="sr-only" role="alert" aria-live="assertive" aria-atomic="true"></div>
 	
-	<!-- Scripts -->
+	<script src="filters.js" defer></script>
 	<script src="strings.js" defer></script>
-  <script src="filters.js" defer></script>
-  <script src="script.js" defer></script>
-	<script defer src="https://cloud.umami.is/script.js" data-website-id="c397f2df-5ed2-4512-a5b5-6dec3d683efa"></script>
+	<script src="script.js" defer></script>
 </body>
 </html>
