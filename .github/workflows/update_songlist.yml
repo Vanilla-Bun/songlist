@@ -18,6 +18,8 @@ jobs:
 
       - name: Download latest export.json
         id: check
+        env:
+          USER_TOKEN: ${{ secrets.USER_TOKEN }}
         run: |
           curl -fL \
             -H "Authorization: User $USER_TOKEN" \
