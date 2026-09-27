@@ -13,7 +13,7 @@ const THEME_STORAGE_KEY = "ui.theme";
 
 const MAX_TAGS_PER_ROW = 2;		
 const EMPTY_STATE_ICON = '<svg class="icon"><use href="#i-search-x"/></svg>';
-const TAGS_HIDDEN = new Set(["DirectorSSSR"]);	// пусто: Set()  •  с данными: Set(["attr1", "attr2"])
+const TAGS_HIDDEN = new Set(["DirectorSSSR", "На других языках"]);	// пусто: Set()  •  с данными: Set(["attr1", "attr2"])
 
 function normalizeLocale(input) {
 	if (input === null || input === undefined) return null;
@@ -188,7 +188,7 @@ function syncFiltersToUrl(activeKeys) {
 	} catch {
 		// noop
 	}
-}
+}		
 
 // -------------------------
 // JSDoc Types
@@ -196,55 +196,144 @@ function syncFiltersToUrl(activeKeys) {
 
 /**
  * @typedef {Object} Song
- * Нормализованный объект песни. Создаётся конвейером parse→normalize→index
- * в normalizeFields() и никогда не изменяется после создания.
+ * Нормализованный и проиндексированный объект песни. Создаётся конвейером
+ * parse → normalize → index и используется как неизменяемая модель песни
+ * в состоянии приложения.
  *
  * @property {string|undefined} id
  *   Оригинальный id из API. Может быть undefined, если API не вернул id.
- *   Для идентификации в DOM используй fallbackId.
+ *   Для идентификации DOM-элементов используется fallbackId.
  *
  * @property {string} fallbackId
- *   Стабильный ключ вида "artist::title" (нормализованный).
- *   Используется в SongTable.getRowKey() и SongCards.getCardKey()
- *   для key-based reconciliation DOM-элементов.
+ *   Стабильный ключ вида "artist::title" на основе нормализованных
+ *   исполнителя и названия. Используется для key-based reconciliation
+ *   DOM-элементов в таблице и карточках.
  *
- * @property {string} title    - Оригинальное название песни (для отображения)
- * @property {string} artist   - Оригинальное имя исполнителя (для отображения)
+ * @property {string} title
+ *   Оригинальное название песни для отображения.
+ *
+ * @property {string} artist
+ *   Оригинальное имя исполнителя для отображения.
+ *
+ * @property {string|null} createdAt
+ *   Дата создания песни из API в формате ISO 8601.
+ *   Используется фильтром "Новая".
  *
  * @property {string[]} attributes
- *   Массив категорий/тегов, прошедших белый список isAllowedTagAttribute().
- *   Используется для рендеринга тегов и фильтрации.
+ *   Массив категорий/тегов после фильтрации через
+ *   isAllowedTagAttribute(). Используется для отображения тегов
+ *   и применения обычных категориальных фильтров.
  *
- * @property {string} searchTitle    - normalize(title): без диакритики, lowercase
- * @property {string} searchArtist   - normalize(artist): без диакритики, lowercase
- * @property {string} searchAttributes - normalize(attributes).join(", ")
+ * @property {string} searchTitle
+ *   Предвычисленное normalize(title) для поиска.
+ *
+ * @property {string} searchArtist
+ *   Предвычисленное normalize(artist) для поиска.
+ *
+ * @property {string} searchAttributes
+ *   Нормализованные атрибуты, объединённые через ", ".
  *
  * @property {string} searchBlob
  *   Единая предвычисленная строка для полнотекстового поиска:
  *   normalize(title + " " + artist + " " + attributes.join(" ")).
- *   Используется в applySearch() для быстрого String.includes() без повторной нормализации.
- *
- * @property {boolean} [active] - Флаг активности из API (фильтруется до нормализации)
+ *   Используется applySearch() для быстрого String.includes()
+ *   без повторной нормализации.
  */
 
 /**
  * @typedef {Object} PaginationMeta
- * @property {number} startIndex  - Индекс первого элемента на странице (0-based)
- * @property {number} endIndex    - Индекс последнего элемента (exclusive)
+ * Метаданные результата пагинации отфильтрованного списка песен.
+ *
+ * @property {number} startIndex
+ *   Индекс первого элемента текущей страницы (0-based).
+ *
+ * @property {number} endIndex
+ *   Индекс конца текущей страницы (exclusive).
+ *
  * @property {number} totalPages
- * @property {number} totalCount  - Общее число отфильтрованных песен
+ *   Общее количество страниц.
+ *
+ * @property {number} totalCount
+ *   Общее количество песен после поиска и фильтрации.
+ *
  * @property {number} currentPage
+ *   Номер текущей страницы (1-based).
  */
 
 /**
  * @typedef {Object} AppState
- * @property {{ allSongs: Song[], sha: string|null, isLoading: boolean, error: string|null }} data
- * @property {{ locale: string, theme: string, search: {query: string},
- *   filters: {activeKeys: string[]}, sort: {column: string|null, direction: string},
- *   pagination: {currentPage: number, itemsPerPageRaw: number},
- *   modal: {isOpen: boolean, selectedSong: Song|null, isCardNumberLoading: boolean,
- *   cardNumber: string|null, cardNumberError: string|null, lastCopyAction: string|null},
- *   toast: {isVisible: boolean, message: string} }} ui
+ * Полное состояние приложения.
+ *
+ * @property {Object} data
+ * @property {Song[]} data.allSongs
+ *   Полный нормализованный список песен.
+ *
+ * @property {string|null} data.sha
+ *   SHA загруженного JSON-файла с данными песен.
+ *
+ * @property {boolean} data.isLoading
+ *   Признак текущей загрузки данных.
+ *
+ * @property {string|null} data.error
+ *   Текст ошибки загрузки данных или null при отсутствии ошибки.
+ *
+ * @property {Object} ui
+ *
+ * @property {string} ui.locale
+ *   Текущая локаль интерфейса.
+ *
+ * @property {string} ui.theme
+ *   Текущая тема интерфейса.
+ *
+ * @property {Object} ui.search
+ * @property {string} ui.search.query
+ *   Текущий поисковый запрос.
+ *
+ * @property {Object} ui.filters
+ * @property {string[]} ui.filters.activeKeys
+ *   Ключи активных фильтров.
+ *
+ * @property {Object} ui.sort
+ * @property {string|null} ui.sort.column
+ *   Ключ текущей сортировки или null, если сортировка не выбрана.
+ *
+ * @property {string} ui.sort.direction
+ *   Направление сортировки.
+ *
+ * @property {Object} ui.pagination
+ * @property {number} ui.pagination.currentPage
+ *   Текущая страница (1-based).
+ *
+ * @property {number} ui.pagination.itemsPerPageRaw
+ *   Сырое значение количества элементов на странице.
+ *   Специальное отрицательное значение используется для режима
+ *   отображения всех элементов.
+ *
+ * @property {Object} ui.modal
+ * @property {boolean} ui.modal.isOpen
+ *   Открыта ли модальное окно.
+ *
+ * @property {Song|null} ui.modal.selectedSong
+ *   Выбранная песня или null.
+ *
+ * @property {boolean} ui.modal.isCardNumberLoading
+ *   Выполняется ли загрузка/декодирование номера карты.
+ *
+ * @property {string|null} ui.modal.cardNumber
+ *   Декодированный номер карты или null.
+ *
+ * @property {string|null} ui.modal.cardNumberError
+ *   Сообщение об ошибке получения номера карты или null.
+ *
+ * @property {string|null} ui.modal.lastCopyAction
+ *   Тип последнего действия копирования или null.
+ *
+ * @property {Object} ui.toast
+ * @property {boolean} ui.toast.isVisible
+ *   Отображается ли toast-уведомление.
+ *
+ * @property {string} ui.toast.message
+ *   Текст toast-уведомления.
  */
 
 // -------------------------
@@ -338,7 +427,8 @@ function parseSongAttributes(song) {
 }
 
 function normalizeSong(song) {
-	const visibleAttributes = song.attributes.filter((attr) => isAllowedTagAttribute(attr));
+	const allAttributes = Array.isArray(song.attributes) ? song.attributes : [];
+	const visibleAttributes = allAttributes.filter((attr) => !TAGS_HIDDEN.has(attr));
 	const rawId = (song.id ?? "").toString().trim();
 	const fallbackId = computeFallbackId(song);
 	return {
@@ -346,21 +436,25 @@ function normalizeSong(song) {
 		id: rawId ? rawId : undefined,
 		fallbackId,
 		attributes: visibleAttributes,
-		_allAttributes: song.attributes
+		_allAttributes: allAttributes
 	};
 }
 
 function indexSong(song) {
 	const titleN = normalize(song.title);
 	const artistN = normalize(song.artist);
-	const visibleAttrs = song.attributes;
-	const attrsN = visibleAttrs.map(normalize).join(", ");
-	const searchBlobRaw = [song.title, song.artist, visibleAttrs.join(" ")].join(" ");
+	const allAttrs = song._allAttributes ?? song.attributes;
+	const searchableAttrs = allAttrs.filter(isAllowedTagAttribute);
+	const attrsN = searchableAttrs.map(normalize).join(", ");
+	const filterAttrsN = allAttrs.map(normalize).join(", ");
+	const searchBlobRaw = [song.title, song.artist, searchableAttrs.join(" ")].join(" ");
+
 	return {
 		...song,
 		searchTitle: titleN,
 		searchArtist: artistN,
 		searchAttributes: attrsN,
+		filterAttributes: filterAttrsN,
 		searchBlob: normalize(searchBlobRaw)
 	};
 }
@@ -416,10 +510,18 @@ function applyFilters(songs, filtersState, filterMap) {
 	if (activeKeys.length === 0) return songs;
 
 	return songs.filter((song) => {
-		const attrsNorm = song.searchAttributes;
+		const attrsNorm = song.filterAttributes;
+
 		return activeKeys.every((key) => {
+			const def = FILTER_DEFS[key];
+
+			if (def?.type === "recent") {
+				return isRecentSong(song.createdAt);
+			}
+
 			const requiredAttrs = filterMap[key];
-			return requiredAttrs.some((reqNorm) => attrsNorm.includes(reqNorm));
+			return Array.isArray(requiredAttrs)
+				&& requiredAttrs.some((reqNorm) => attrsNorm.includes(reqNorm));
 		});
 	});
 }
@@ -490,7 +592,7 @@ function selectFilteredSongs(state) {
 
 const FILTER_MAP = Object.fromEntries(
 	Object.entries(FILTER_DEFS)
-		.filter(([_, def]) => def.allow)
+		.filter(([_, def]) => def.allow && Array.isArray(def.attributes))
 		.map(([key, def]) => [key, def.attributes.map(normalize)])
 );
 
@@ -499,11 +601,13 @@ function isAllowedTagAttribute(attr) {
 	if (!normalizedAttr) return false;
 	if (TAGS_HIDDEN.has(attr)) return false;
 
-	return Object.values(FILTER_DEFS).some((def) => {
-		if (!def || !def.allow || !Array.isArray(def.attributes)) return false;
+	return !Object.values(FILTER_DEFS).some((def) => {
+		if (!def || def.allow !== false || !Array.isArray(def.attributes)) return false;
 		return def.attributes.some((candidate) => normalize(candidate) === normalizedAttr);
 	});
 }
+
+
 
 // -------------------------
 // Live regions announce
@@ -1401,7 +1505,7 @@ function packTagRows(parts) {
 	for (let i = 0; i < n; i++) {
 		const w = widths[byAsc[i]];
 		const addW = rowW > 0 ? rowW + GAP + w : w;
-		if (row.length >= MAX_TAGS_PER_ROW || (row.length > 0 && addW > colWidth)) {
+		if (row.length >= MAX_TAGS_PER_ROW) {
 			rows.push(row); row = [p(i)]; rowW = w;
 		} else {
 			row.push(p(i)); rowW = addW;
@@ -1411,12 +1515,26 @@ function packTagRows(parts) {
 	return rows;
 }
 
-function renderTagsToContainer(attrs, container) {
+function isRecentSong(createdAt) {
+	const created = Date.parse(createdAt ?? "");
+	if (!Number.isFinite(created)) return false;
+
+	const now = Date.now();
+	const cutoff = now - NEW_SONGS_DAYS * 24 * 60 * 60 * 1000;
+
+	return created >= cutoff && created <= now;
+}
+
+function renderTagsToContainer(attrs, container, createdAt = null) {
 	if (!container) return;
 
 	const parts = Array.isArray(attrs)
 		? attrs.filter((attr) => isAllowedTagAttribute(attr))
 		: (attrs ?? "").toString().split(",").map((s) => s.trim()).filter(Boolean).filter((attr) => isAllowedTagAttribute(attr));
+
+	if (isRecentSong(createdAt)) {
+		parts.unshift("Новые");
+	}
 
 	const frag = document.createDocumentFragment();
 
@@ -1821,7 +1939,7 @@ const SongTable = {
 		if (tdArtist && tdArtist.textContent !== song.artist) tdArtist.textContent = song.artist;
 
 		if (tdTags) {
-			renderTagsToContainer(song.attributes, tdTags);
+			renderTagsToContainer(song.attributes, tdTags, song.createdAt);
 		}
 
 		if (tdActions) {
@@ -1910,7 +2028,7 @@ const SongTable = {
 		
 		const tdTags = document.createElement("td");
 		tdTags.className = "song-tablecell song-tablecell--tags tablecell tablecell--tags";
-		renderTagsToContainer(song.attributes, tdTags);
+		renderTagsToContainer(song.attributes, tdTags, song.createdAt);
 		tr.appendChild(tdTags);
 
 		const tdActions = document.createElement("td");
@@ -2482,9 +2600,14 @@ function mapApiSongToInternal(raw) {
 		id: raw.id ?? null,
 		title: raw.title ?? raw.name ?? "",
 		artist: raw.artist?.name ?? raw.artist ?? "",
+		createdAt: raw.createdAt ?? null,
 		attributes: Array.isArray(raw.attributeNames)
 			? raw.attributeNames
+				.map((attr) => String(attr ?? "").trim())
+				.map((attr) => attr.replace(/^"(.*)"$/, "$1").trim())
+				.filter(Boolean)
 			: [],
+		createdAt: raw.createdAt ?? null,
 		active: raw.active ?? true
 	};
 }
