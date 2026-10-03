@@ -27,7 +27,7 @@
       "title": "Мама, я танцую",
       "artist": "#2Маши",
       "createdAt": "2023-12-05T17:57:42.800346Z",
-      "active": true,
+      "active": false,
       "lastActivation": "2023-12-06T17:19:23.561Z",
       "comment": "",
       "tabs": "",
@@ -40,7 +40,8 @@
       "durationSeconds": null,
       "attributeNames": [
         "Потанцевать",
-        "ПОП"
+        "ПОП",
+        "Высокие"
       ]
     },
     {
@@ -90,7 +91,7 @@
       "title": "Skyfall",
       "artist": "Adele",
       "createdAt": "2023-12-27T22:40:03.150014Z",
-      "active": true,
+      "active": false,
       "lastActivation": "2023-12-27T22:40:03.122Z",
       "comment": "",
       "tabs": "",
@@ -105,7 +106,9 @@
         "Английские",
         "\"На других языках\"",
         "\"А капелла\"",
-        "Лирические"
+        "Лирические",
+        "\"Из кинофильмов\"",
+        "Высокие"
       ]
     },
     {
@@ -190,7 +193,8 @@
       "streamerId": 39650,
       "durationSeconds": null,
       "attributeNames": [
-        "Лирические"
+        "Лирические",
+        "РОК"
       ]
     },
     {
@@ -210,7 +214,8 @@
       "streamerId": 39650,
       "durationSeconds": null,
       "attributeNames": [
-        "РОК"
+        "РОК",
+        "Потанцевать"
       ]
     },
     {
@@ -471,7 +476,7 @@
       "durationSeconds": null,
       "attributeNames": [
         "РОК",
-        "Ретро"
+        "Лирические"
       ]
     },
     {
@@ -513,7 +518,8 @@
       "durationSeconds": null,
       "attributeNames": [
         "Молдавские",
-        "\"На других языках\""
+        "\"На других языках\"",
+        "Потанцевать"
       ]
     },
     {
@@ -580,7 +586,8 @@
       "durationSeconds": null,
       "attributeNames": [
         "Молдавские",
-        "\"На других языках\""
+        "\"На других языках\"",
+        "Потанцевать"
       ]
     },
     {
@@ -642,7 +649,8 @@
       "streamerId": 39650,
       "durationSeconds": null,
       "attributeNames": [
-        "ПОП"
+        "ПОП",
+        "Потанцевать"
       ]
     },
     {
@@ -799,7 +807,8 @@
       "durationSeconds": null,
       "attributeNames": [
         "Молдавские",
-        "\"На других языках\""
+        "\"На других языках\"",
+        "Потанцевать"
       ]
     },
     {
@@ -819,7 +828,8 @@
       "streamerId": 39650,
       "durationSeconds": null,
       "attributeNames": [
-        "ПОП"
+        "ПОП",
+        "Потанцевать"
       ]
     },
     {
@@ -839,7 +849,8 @@
       "streamerId": 39650,
       "durationSeconds": null,
       "attributeNames": [
-        "РОК"
+        "РОК",
+        "Высокие"
       ]
     },
     {
@@ -879,7 +890,8 @@
       "streamerId": 39650,
       "durationSeconds": null,
       "attributeNames": [
-        "ПОП"
+        "ПОП",
+        "Лирические"
       ]
     },
     {
@@ -1009,7 +1021,8 @@
       "attributeNames": [
         "Французские",
         "\"На других языках\"",
-        "ПОП"
+        "ПОП",
+        "Потанцевать"
       ]
     },
     {
@@ -1052,7 +1065,8 @@
       "durationSeconds": null,
       "attributeNames": [
         "Молдавские",
-        "\"На других языках\""
+        "\"На других языках\"",
+        "Потанцевать"
       ]
     },
     {
@@ -1072,7 +1086,8 @@
       "streamerId": 39650,
       "durationSeconds": null,
       "attributeNames": [
-        "РОК"
+        "РОК",
+        "Лирические"
       ]
     },
     {
@@ -1093,7 +1108,8 @@
       "durationSeconds": null,
       "attributeNames": [
         "РОК",
-        "DirectorSSSR"
+        "DirectorSSSR",
+        "Лирические"
       ]
     },
     {
@@ -1150,14 +1166,15 @@
       "tabs": "",
       "lyrics": "",
       "minAmount": 0,
-      "chords": "<br />",
+      "chords": "<br/>",
       "capo": "",
       "bypassRequestLimits": false,
       "streamerId": 39650,
       "durationSeconds": null,
       "attributeNames": [
         "Молдавские",
-        "\"На других языках\""
+        "\"На других языках\"",
+        "Потанцевать"
       ]
     },
     {
@@ -1528,6 +1545,26 @@
       ]
     },
     {
+      "id": 7591572,
+      "title": "Там за окном (стих)",
+      "artist": "Vanilla Bun",
+      "createdAt": "2026-09-27T18:03:42.666892Z",
+      "active": false,
+      "lastActivation": "2026-09-27T18:03:42.67101Z",
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "minAmount": 0,
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "streamerId": 39650,
+      "durationSeconds": null,
+      "attributeNames": [
+        "Стихи"
+      ]
+    },
+    {
       "id": 4175049,
       "title": "Пьяные души",
       "artist": "VERA",
@@ -1587,7 +1624,8 @@
       "durationSeconds": null,
       "attributeNames": [
         "\"На других языках\"",
-        "Французские"
+        "Французские",
+        "Потанцевать"
       ]
     },
     {
@@ -1712,7 +1750,8 @@
       "streamerId": 39650,
       "durationSeconds": 515,
       "attributeNames": [
-        "РОК"
+        "РОК",
+        "Ретро"
       ]
     },
     {
@@ -1837,7 +1876,8 @@
       "streamerId": 39650,
       "durationSeconds": null,
       "attributeNames": [
-        "ПОП"
+        "ПОП",
+        "Потанцевать"
       ]
     },
     {
@@ -1916,7 +1956,8 @@
       "durationSeconds": null,
       "attributeNames": [
         "РОК",
-        "DirectorSSSR"
+        "DirectorSSSR",
+        "Лирические"
       ]
     },
     {
@@ -2022,7 +2063,8 @@
       "durationSeconds": null,
       "attributeNames": [
         "Новогодние",
-        "\"Из кинофильмов\""
+        "\"Из кинофильмов\"",
+        "Лирические"
       ]
     },
     {
@@ -2063,7 +2105,8 @@
       "durationSeconds": null,
       "attributeNames": [
         "Новогодние",
-        "ПОП"
+        "ПОП",
+        "Лирические"
       ]
     },
     {
@@ -2084,7 +2127,8 @@
       "durationSeconds": null,
       "attributeNames": [
         "ПОП",
-        "DirectorSSSR"
+        "DirectorSSSR",
+        "Лирические"
       ]
     },
     {
@@ -2105,7 +2149,8 @@
       "durationSeconds": null,
       "attributeNames": [
         "Новогодние",
-        "ПОП"
+        "ПОП",
+        "Потанцевать"
       ]
     },
     {
@@ -2605,27 +2650,6 @@
       ]
     },
     {
-      "id": 5056385,
-      "title": "Мой рок-н-ролл",
-      "artist": "Би-2",
-      "createdAt": "2025-02-06T11:31:08.122127Z",
-      "active": true,
-      "lastActivation": "2025-02-06T11:31:08.11Z",
-      "comment": "",
-      "tabs": "",
-      "lyrics": "",
-      "minAmount": 0,
-      "chords": "",
-      "capo": "",
-      "bypassRequestLimits": false,
-      "streamerId": 39650,
-      "durationSeconds": null,
-      "attributeNames": [
-        "Лирические",
-        "РОК"
-      ]
-    },
-    {
       "id": 4179589,
       "title": "Молитва",
       "artist": "Би-2",
@@ -2675,6 +2699,27 @@
       "createdAt": "2024-04-06T08:13:28.199289Z",
       "active": true,
       "lastActivation": "2024-04-06T08:13:28.153Z",
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "minAmount": 0,
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "streamerId": 39650,
+      "durationSeconds": null,
+      "attributeNames": [
+        "Лирические",
+        "РОК"
+      ]
+    },
+    {
+      "id": 5056385,
+      "title": "Мой рок-н-ролл",
+      "artist": "Би-2 и Чичерина",
+      "createdAt": "2025-02-06T11:31:08.122127Z",
+      "active": true,
+      "lastActivation": "2025-02-06T11:31:08.11Z",
       "comment": "",
       "tabs": "",
       "lyrics": "",
@@ -3569,7 +3614,7 @@
       "title": "Рюмка водки на столе",
       "artist": "Григорий Лепс",
       "createdAt": "2026-08-05T09:23:29.370312Z",
-      "active": true,
+      "active": false,
       "lastActivation": "2026-08-05T09:23:29.366Z",
       "comment": "",
       "tabs": "",
@@ -3582,7 +3627,8 @@
       "durationSeconds": null,
       "attributeNames": [
         "Лирические",
-        "Шансон"
+        "Шансон",
+        "Высокие"
       ]
     },
     {
@@ -3590,7 +3636,7 @@
       "title": "Я поднимаю руки",
       "artist": "Григорий Лепс",
       "createdAt": "2023-12-12T08:05:46.541804Z",
-      "active": true,
+      "active": false,
       "lastActivation": "2025-10-29T19:02:46.047Z",
       "comment": "",
       "tabs": "",
@@ -3601,14 +3647,16 @@
       "bypassRequestLimits": false,
       "streamerId": 39650,
       "durationSeconds": null,
-      "attributeNames": []
+      "attributeNames": [
+        "Высокие"
+      ]
     },
     {
       "id": 4190547,
       "title": "Я тебя не люблю",
       "artist": "Григорий Лепс",
       "createdAt": "2023-12-12T08:05:32.009841Z",
-      "active": true,
+      "active": false,
       "lastActivation": "2025-10-29T19:02:40.262Z",
       "comment": "",
       "tabs": "",
@@ -3619,14 +3667,16 @@
       "bypassRequestLimits": false,
       "streamerId": 39650,
       "durationSeconds": null,
-      "attributeNames": []
+      "attributeNames": [
+        "Высокие"
+      ]
     },
     {
       "id": 4329851,
       "title": "Зеркала",
       "artist": "Григорий Лепс и Ани Лорак",
       "createdAt": "2024-03-08T09:40:07.801856Z",
-      "active": true,
+      "active": false,
       "lastActivation": "2025-10-29T19:02:52.032Z",
       "comment": "",
       "tabs": "",
@@ -3637,14 +3687,16 @@
       "bypassRequestLimits": false,
       "streamerId": 39650,
       "durationSeconds": null,
-      "attributeNames": []
+      "attributeNames": [
+        "Высокие"
+      ]
     },
     {
       "id": 4174962,
       "title": "Орлы или вороны",
       "artist": "Григорий Лепс и Максим Фадеев",
       "createdAt": "2023-11-30T20:14:05.103759Z",
-      "active": true,
+      "active": false,
       "lastActivation": "2023-11-30T20:14:05.101Z",
       "comment": "",
       "tabs": "",
@@ -3656,7 +3708,8 @@
       "streamerId": 39650,
       "durationSeconds": 209,
       "attributeNames": [
-        "РОК"
+        "РОК",
+        "Высокие"
       ]
     },
     {
@@ -6429,7 +6482,7 @@
       "title": "Нулевой километр",
       "artist": "Мураками",
       "createdAt": "2024-08-21T06:31:44.741625Z",
-      "active": true,
+      "active": false,
       "lastActivation": "2024-08-21T06:31:44.737Z",
       "comment": "",
       "tabs": "",
@@ -6441,7 +6494,8 @@
       "streamerId": 39650,
       "durationSeconds": null,
       "attributeNames": [
-        "РОК"
+        "РОК",
+        "Высокие"
       ]
     },
     {
@@ -6907,7 +6961,7 @@
     },
     {
       "id": 4174999,
-      "title": "А кто такие Фиксики? (заставка)",
+      "title": "А кто такие Фиксики?",
       "artist": "м/ф \"Фиксики\"",
       "createdAt": "2023-11-30T20:36:57.546506Z",
       "active": false,
@@ -7500,7 +7554,8 @@
       "streamerId": 39650,
       "durationSeconds": null,
       "attributeNames": [
-        "ПОП"
+        "ПОП",
+        "Ретро"
       ]
     },
     {
@@ -8186,7 +8241,7 @@
       "title": "Там нет меня",
       "artist": "Севара",
       "createdAt": "2024-02-20T13:23:02.701311Z",
-      "active": true,
+      "active": false,
       "lastActivation": "2024-02-20T13:23:02.697Z",
       "comment": "",
       "tabs": "",
@@ -8198,7 +8253,8 @@
       "streamerId": 39650,
       "durationSeconds": null,
       "attributeNames": [
-        "Лирические"
+        "Лирические",
+        "Высокие"
       ]
     },
     {
@@ -8332,7 +8388,7 @@
       "title": "Круги на воде",
       "artist": "СЛОТ",
       "createdAt": "2024-01-04T13:55:11.007219Z",
-      "active": true,
+      "active": false,
       "lastActivation": "2024-01-04T13:55:10.999Z",
       "comment": "",
       "tabs": "",
@@ -8345,7 +8401,8 @@
       "durationSeconds": null,
       "attributeNames": [
         "РОК",
-        "DirectorSSSR"
+        "DirectorSSSR",
+        "Высокие"
       ]
     },
     {
@@ -8353,7 +8410,7 @@
       "title": "Маяк",
       "artist": "СЛОТ",
       "createdAt": "2025-04-10T11:53:48.261571Z",
-      "active": true,
+      "active": false,
       "lastActivation": "2025-04-10T11:53:48.256Z",
       "comment": "",
       "tabs": "",
@@ -8365,7 +8422,8 @@
       "streamerId": 39650,
       "durationSeconds": null,
       "attributeNames": [
-        "РОК"
+        "РОК",
+        "Высокие"
       ]
     },
     {
@@ -8836,7 +8894,7 @@
       "title": "Выше облаков",
       "artist": "Тина Кароль",
       "createdAt": "2024-01-04T13:55:24.308034Z",
-      "active": true,
+      "active": false,
       "lastActivation": "2024-01-04T13:55:24.305Z",
       "comment": "",
       "tabs": "",
@@ -8848,7 +8906,8 @@
       "streamerId": 39650,
       "durationSeconds": null,
       "attributeNames": [
-        "Лирические"
+        "Лирические",
+        "Высокие"
       ]
     },
     {
@@ -9222,7 +9281,8 @@
       "durationSeconds": null,
       "attributeNames": [
         "Лирические",
-        "ПОП"
+        "ПОП",
+        "\"Из кинофильмов\""
       ]
     },
     {
@@ -9283,7 +9343,8 @@
       "streamerId": 39650,
       "durationSeconds": null,
       "attributeNames": [
-        "ПОП"
+        "ПОП",
+        "Ретро"
       ]
     },
     {
@@ -9370,6 +9431,6 @@
       ]
     }
   ],
-  "total": 450,
-  "_version": 1790506240
+  "total": 451,
+  "_version": 1791029915
 }
