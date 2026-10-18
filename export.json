@@ -3204,6 +3204,28 @@
       ]
     },
     {
+      "id": 7794708,
+      "title": "Бабушки-старушки",
+      "artist": "ВИА Весёлые ребята",
+      "createdAt": "2026-10-18T15:21:31.243962Z",
+      "active": true,
+      "lastActivation": "2026-10-18T15:21:31.244291Z",
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "minAmount": 0,
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "streamerId": 39650,
+      "durationSeconds": null,
+      "attributeNames": [
+        "Потанцевать",
+        "\"Из кинофильмов\"",
+        "Ретро"
+      ]
+    },
+    {
       "id": 5120516,
       "title": "В последний раз",
       "artist": "ВИА Весёлые ребята",
@@ -9431,6 +9453,6 @@
       ]
     }
   ],
-  "total": 451,
-  "_version": 1791029915
+  "total": 452,
+  "_version": 1792337055
 }
