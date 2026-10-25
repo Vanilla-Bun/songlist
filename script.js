@@ -13,7 +13,7 @@ const THEME_STORAGE_KEY = "ui.theme";
 
 const MAX_TAGS_PER_ROW = 2;		
 const EMPTY_STATE_ICON = '<svg class="icon"><use href="#i-search-x"/></svg>';
-const TAGS_HIDDEN = new Set(["DirectorSSSR", "На других языках"]);	// пусто: Set()  •  с данными: Set(["attr1", "attr2"])
+const TAGS_HIDDEN = new Set(["DirectorSSSR", "На других языках", "Высокие"]);	// пусто: Set()  •  с данными: Set(["attr1", "attr2"])
 
 function normalizeLocale(input) {
 	if (input === null || input === undefined) return null;
