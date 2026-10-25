@@ -3210,7 +3210,7 @@
       "title": "Бабушки-старушки",
       "artist": "ВИА Весёлые ребята",
       "createdAt": "2026-10-18T15:21:31.243962Z",
-      "active": false,
+      "active": true,
       "lastActivation": "2026-10-18T15:21:31.244291Z",
       "comment": "",
       "tabs": "",
@@ -9457,5 +9457,5 @@
     }
   ],
   "total": 452,
-  "_version": 1792938261
+  "_version": 1792938843
 }
