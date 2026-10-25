@@ -27,7 +27,7 @@
       "title": "Мама, я танцую",
       "artist": "#2Маши",
       "createdAt": "2023-12-05T17:57:42.800346Z",
-      "active": false,
+      "active": true,
       "lastActivation": "2023-12-06T17:19:23.561Z",
       "comment": "",
       "tabs": "",
@@ -91,7 +91,7 @@
       "title": "Skyfall",
       "artist": "Adele",
       "createdAt": "2023-12-27T22:40:03.150014Z",
-      "active": false,
+      "active": true,
       "lastActivation": "2023-12-27T22:40:03.122Z",
       "comment": "",
       "tabs": "",
@@ -1716,7 +1716,7 @@
       "title": "Чорне і біле",
       "artist": "ZOZULYA",
       "createdAt": "2023-11-30T20:48:44.867986Z",
-      "active": false,
+      "active": true,
       "lastActivation": "2025-01-11T22:25:44.413Z",
       "comment": "",
       "tabs": "",
@@ -2994,7 +2994,9 @@
       "bypassRequestLimits": false,
       "streamerId": 39650,
       "durationSeconds": null,
-      "attributeNames": []
+      "attributeNames": [
+        "Лирические"
+      ]
     },
     {
       "id": 4174970,
@@ -3636,7 +3638,7 @@
       "title": "Рюмка водки на столе",
       "artist": "Григорий Лепс",
       "createdAt": "2026-08-05T09:23:29.370312Z",
-      "active": false,
+      "active": true,
       "lastActivation": "2026-08-05T09:23:29.366Z",
       "comment": "",
       "tabs": "",
@@ -3658,7 +3660,7 @@
       "title": "Я поднимаю руки",
       "artist": "Григорий Лепс",
       "createdAt": "2023-12-12T08:05:46.541804Z",
-      "active": false,
+      "active": true,
       "lastActivation": "2025-10-29T19:02:46.047Z",
       "comment": "",
       "tabs": "",
@@ -3678,7 +3680,7 @@
       "title": "Я тебя не люблю",
       "artist": "Григорий Лепс",
       "createdAt": "2023-12-12T08:05:32.009841Z",
-      "active": false,
+      "active": true,
       "lastActivation": "2025-10-29T19:02:40.262Z",
       "comment": "",
       "tabs": "",
@@ -3698,7 +3700,7 @@
       "title": "Зеркала",
       "artist": "Григорий Лепс и Ани Лорак",
       "createdAt": "2024-03-08T09:40:07.801856Z",
-      "active": false,
+      "active": true,
       "lastActivation": "2025-10-29T19:02:52.032Z",
       "comment": "",
       "tabs": "",
@@ -3718,7 +3720,7 @@
       "title": "Орлы или вороны",
       "artist": "Григорий Лепс и Максим Фадеев",
       "createdAt": "2023-11-30T20:14:05.103759Z",
-      "active": false,
+      "active": true,
       "lastActivation": "2023-11-30T20:14:05.101Z",
       "comment": "",
       "tabs": "",
@@ -4702,7 +4704,8 @@
       "streamerId": 39650,
       "durationSeconds": null,
       "attributeNames": [
-        "РОК"
+        "РОК",
+        "Лирические"
       ]
     },
     {
@@ -6504,7 +6507,7 @@
       "title": "Нулевой километр",
       "artist": "Мураками",
       "createdAt": "2024-08-21T06:31:44.741625Z",
-      "active": false,
+      "active": true,
       "lastActivation": "2024-08-21T06:31:44.737Z",
       "comment": "",
       "tabs": "",
@@ -8263,7 +8266,7 @@
       "title": "Там нет меня",
       "artist": "Севара",
       "createdAt": "2024-02-20T13:23:02.701311Z",
-      "active": false,
+      "active": true,
       "lastActivation": "2024-02-20T13:23:02.697Z",
       "comment": "",
       "tabs": "",
@@ -8410,7 +8413,7 @@
       "title": "Круги на воде",
       "artist": "СЛОТ",
       "createdAt": "2024-01-04T13:55:11.007219Z",
-      "active": false,
+      "active": true,
       "lastActivation": "2024-01-04T13:55:10.999Z",
       "comment": "",
       "tabs": "",
@@ -8432,7 +8435,7 @@
       "title": "Маяк",
       "artist": "СЛОТ",
       "createdAt": "2025-04-10T11:53:48.261571Z",
-      "active": false,
+      "active": true,
       "lastActivation": "2025-04-10T11:53:48.256Z",
       "comment": "",
       "tabs": "",
@@ -8916,7 +8919,7 @@
       "title": "Выше облаков",
       "artist": "Тина Кароль",
       "createdAt": "2024-01-04T13:55:24.308034Z",
-      "active": false,
+      "active": true,
       "lastActivation": "2024-01-04T13:55:24.305Z",
       "comment": "",
       "tabs": "",
@@ -9454,5 +9457,5 @@
     }
   ],
   "total": 452,
-  "_version": 1792337055
+  "_version": 1792937924
 }
