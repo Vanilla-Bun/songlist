@@ -633,6 +633,28 @@
       ]
     },
     {
+      "id": 7828768,
+      "title": "Hayalet Sevgilim",
+      "artist": "İrem",
+      "createdAt": "2026-10-29T07:59:17.536296Z",
+      "active": true,
+      "lastActivation": "2026-10-29T07:59:17.536587Z",
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "minAmount": 0,
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "streamerId": 39650,
+      "durationSeconds": null,
+      "attributeNames": [
+        "\"На других языках\"",
+        "Турецкие",
+        "Лирические"
+      ]
+    },
+    {
       "id": 4493130,
       "title": "Дарите женщинам цветы",
       "artist": "Jazzdauren",
@@ -3454,6 +3476,27 @@
       "attributeNames": []
     },
     {
+      "id": 7829051,
+      "title": "Последняя электричка",
+      "artist": "Владимир Макаров",
+      "createdAt": "2026-10-29T13:11:21.951762Z",
+      "active": true,
+      "lastActivation": "2026-10-29T13:11:21.953021Z",
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "minAmount": 0,
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "streamerId": 39650,
+      "durationSeconds": null,
+      "attributeNames": [
+        "Потанцевать",
+        "Ретро"
+      ]
+    },
+    {
       "id": 5624740,
       "title": "Подмосковные вечера",
       "artist": "Владимир Трошин",
@@ -5544,6 +5587,27 @@
       ]
     },
     {
+      "id": 7828763,
+      "title": "Да здравствует сюрприз!",
+      "artist": "к/ф \"Незнайка с нашего двора\"",
+      "createdAt": "2026-10-29T07:51:15.622612Z",
+      "active": true,
+      "lastActivation": "2026-10-29T07:51:15.624817Z",
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "minAmount": 0,
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "streamerId": 39650,
+      "durationSeconds": null,
+      "attributeNames": [
+        "\"Из кинофильмов\"",
+        "Ретро"
+      ]
+    },
+    {
       "id": 7580482,
       "title": "А у детства нет прошлого...",
       "artist": "к/ф \"Питер Пэн\"",
@@ -7213,7 +7277,7 @@
     },
     {
       "id": 4175006,
-      "title": "Нас бьют – мы летаем",
+      "title": "Нас бьют - мы летаем",
       "artist": "Наргиз",
       "createdAt": "2023-11-30T20:38:23.446696Z",
       "active": true,
@@ -9311,6 +9375,27 @@
       ]
     },
     {
+      "id": 7829050,
+      "title": "Камелии",
+      "artist": "Юлия Савичева",
+      "createdAt": "2026-10-29T13:09:32.12249Z",
+      "active": true,
+      "lastActivation": "2026-10-29T13:09:32.123123Z",
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "minAmount": 0,
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "streamerId": 39650,
+      "durationSeconds": null,
+      "attributeNames": [
+        "Лирические",
+        "ПОП"
+      ]
+    },
+    {
       "id": 5689501,
       "title": "Крыша дома твоего",
       "artist": "Юрий Антонов",
@@ -9456,6 +9541,6 @@
       ]
     }
   ],
-  "total": 452,
-  "_version": 1792938843
+  "total": 456,
+  "_version": 1793281516
 }
