@@ -591,6 +591,29 @@
       ]
     },
     {
+      "id": 7845503,
+      "title": "Made in Romania",
+      "artist": "Ionuț Cercel",
+      "createdAt": "2026-11-18T12:12:23.982989Z",
+      "active": true,
+      "lastActivation": "2026-11-18T12:12:23.984946Z",
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "minAmount": 0,
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "streamerId": 39650,
+      "durationSeconds": null,
+      "attributeNames": [
+        "\"На других языках\"",
+        "Молдавские",
+        "Потанцевать",
+        "ПОП"
+      ]
+    },
+    {
       "id": 4179595,
       "title": "Песня простая",
       "artist": "IOWA",
@@ -955,6 +978,29 @@
       "durationSeconds": null,
       "attributeNames": [
         "ПОП"
+      ]
+    },
+    {
+      "id": 7845488,
+      "title": "Kara Kedi",
+      "artist": "Melis Fis",
+      "createdAt": "2026-11-18T12:06:59.387613Z",
+      "active": true,
+      "lastActivation": "2026-11-18T12:06:59.389155Z",
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "minAmount": 0,
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "streamerId": 39650,
+      "durationSeconds": null,
+      "attributeNames": [
+        "\"На других языках\"",
+        "Турецкие",
+        "ПОП",
+        "Потанцевать"
       ]
     },
     {
@@ -3633,7 +3679,8 @@
       "durationSeconds": null,
       "attributeNames": [
         "Лирические",
-        "РОК"
+        "РОК",
+        "\"Из кинофильмов\""
       ]
     },
     {
@@ -6032,6 +6079,27 @@
       ]
     },
     {
+      "id": 7845512,
+      "title": "День рождения / Третье ноября",
+      "artist": "Людмила Сенчина",
+      "createdAt": "2026-11-18T12:16:20.447005Z",
+      "active": true,
+      "lastActivation": "2026-11-18T12:16:20.448518Z",
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "minAmount": 0,
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "streamerId": 39650,
+      "durationSeconds": null,
+      "attributeNames": [
+        "Лирические",
+        "Ретро"
+      ]
+    },
+    {
       "id": 4179594,
       "title": "Песня Золушки",
       "artist": "Людмила Сенчина",
@@ -7624,6 +7692,27 @@
         "Украинские",
         "\"На других языках\"",
         "Лирические"
+      ]
+    },
+    {
+      "id": 7845517,
+      "title": "Песенка шофёра",
+      "artist": "Олег Анофриев",
+      "createdAt": "2026-11-18T12:20:28.230183Z",
+      "active": true,
+      "lastActivation": "2026-11-18T12:20:28.231569Z",
+      "comment": "",
+      "tabs": "",
+      "lyrics": "",
+      "minAmount": 0,
+      "chords": "",
+      "capo": "",
+      "bypassRequestLimits": false,
+      "streamerId": 39650,
+      "durationSeconds": null,
+      "attributeNames": [
+        "\"Из кинофильмов\"",
+        "Ретро"
       ]
     },
     {
@@ -9541,6 +9630,6 @@
       ]
     }
   ],
-  "total": 456,
-  "_version": 1793281516
+  "total": 460,
+  "_version": 1795004514
 }
